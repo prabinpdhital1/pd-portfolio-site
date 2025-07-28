@@ -1,36 +1,88 @@
-/* === HERO with background === */
-.profile-hero {
-  background: url("static/banner-bg.jpg") center / cover no-repeat; /* swap in your own image */
-  padding: 100px 20px;              /* top/bottom, then left/right */
-  display: flex; justify-content: center; /* centre the card */
+/* ---------- GLOBAL ---------- */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  scroll-behavior: smooth;
 }
-.profile-card {
-  display: flex; flex-wrap: wrap;
-  background: #fff; color: #0c1e45;
+header {
+  background: #fff !important;      /* forced white */
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  padding: 20px 0;
+  position: sticky; top: 0; z-index: 1000;
+}
+.logo       { font-size: 24px; font-weight: 700; color: #0c1e45; }
+.nav-button { margin-left: 15px; font-weight: 500; color: #0c1e45; text-decoration: none; transition: color .3s; }
+.nav-button:hover { color: #0056b3; }
+
+/* ---------- HERO ---------- */
+.pd-hero {
+  min-height: 75vh;
+  display: flex; justify-content: center; align-items: center;
+  background: #f4f4f4;
+  scroll-margin-top: 90px;           /* smooth‑scroll offset for sticky header */
+}
+
+.pd-hero-box {
+  display: flex; flex-wrap: wrap; align-items: center;
+  background: #fff;
+  border-radius: 12px; overflow: hidden;
   max-width: 1100px; width: 100%;
-  border-radius: 6px; overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+}
+.pd-hero-photo, .pd-hero-info { flex: 1 1 500px; }
+
+/* Photo */
+.pd-hero-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  animation: slideInLeft 1s ease forwards;
 }
 
-/* left–right halves */
-.profile-photo, .profile-info { flex: 1 1 500px; }
-.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
-.profile-info { padding: 50px 40px; }
+/* Info */
+.pd-hero-info {
+  padding: 60px 50px;
+  animation: slideInRight 1s ease forwards;
+}
+.pd-hero-info h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  color: #0c1e45;
+}
+.pd-hero-info h4 { font-size: 14px; letter-spacing: .05em; }
+.pd-hero-info p.lead { font-size: 18px; }
 
-.profile-info h1        { font-size: 36px; margin-bottom: .25rem; }
-.profile-info h4        { font-size: 14px; letter-spacing: .05em; margin-bottom: 1.5rem; }
+/* Slide‑in keyframes */
+@keyframes slideInLeft  { from { transform: translateX(-150%); opacity:0 } to { transform:none; opacity:1 } }
+@keyframes slideInRight { from { transform: translateX(150%);  opacity:0 } to { transform:none; opacity:1 } }
 
-.contact-list     { list-style: none; padding: 0; margin: 0; }
-.contact-list li  { margin-bottom: .75rem; font-size: 16px; line-height: 1.4; }
-.contact-list li span { display: inline-block; width: 95px; font-weight: 600; }
+/* Mobile stack */
+@media (max-width: 767px){
+  .pd-hero-photo, .pd-hero-info { flex: 1 1 100%; }
+  .pd-hero-info { padding: 40px 25px; text-align: center; }
+}
 
-/* === SOCIAL STRIP === */
-.social-strip   { background: #0c1e45; padding: 24px 0; }
+/* ---------- SOCIAL STRIP ---------- */
+.social-strip { background: #0c1e45; padding: 24px 0; }
 .social-icon {
-  display: inline-flex; justify-content: center; align-items: center;
+  display: inline-flex; align-items: center; justify-content: center;
   width: 52px; height: 52px; margin: 0 6px;
   background: #fff; color: #0c1e45;
   font-size: 26px; border-radius: 8px;
   transition: transform .3s, background .3s;
 }
 .social-icon:hover { transform: translateY(-3px); background: #e8e8e8; }
+
+/* ---------- SECTIONS ---------- */
+.section { padding: 60px 0; }
+.section h2 { color: #0c1e45; margin-bottom: 20px; }
+
+/* ---------- CARDS ---------- */
+.card-hover { transition: transform .3s, box-shadow .3s; }
+.card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,.1); }
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #0c1e45;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
