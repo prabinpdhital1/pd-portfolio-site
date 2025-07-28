@@ -29,6 +29,39 @@ header{
 }
 .nav-button:hover{color:#0056b3}
 
+/* ----- HEADER ANIMATION (nut & bolt) ---------------------- */
+.header-piece{
+  position:absolute;
+  top:10px;                /* adjust if they overlap the logo */
+  width:32px;height:32px;
+  pointer-events:none;
+}
+
+.nut{
+  left:-40px;
+  animation:bounceNut 4s ease-in-out forwards;
+}
+.bolt{
+  right:-40px;
+  animation:bounceBolt 4s ease-in-out forwards;
+}
+@keyframes bounceNut{
+  0%   {transform:translateX(0)     translateY(0);}
+  15%  {transform:translateX(40px)  translateY(-18px);}
+  30%  {transform:translateX(80px)  translateY(0);}
+  60%  {transform:translateX(250px) translateY(-8px);}
+  85%  {transform:translateX(320px) translateY(0);}
+  100% {transform:translateX(350px) translateY(0) scale(0);opacity:0;}
+}
+@keyframes bounceBolt{
+  0%   {transform:translateX(0)      translateY(0);}
+  15%  {transform:translateX(-40px)  translateY(-18px);}
+  30%  {transform:translateX(-80px)  translateY(0);}
+  60%  {transform:translateX(-250px) translateY(-8px);}
+  85%  {transform:translateX(-320px) translateY(0);}
+  100% {transform:translateX(-350px) translateY(0) scale(0);opacity:0;}
+}
+
 /* HERO ------------------------------------------------------ */
 .pd-hero{
   min-height:75vh;
@@ -64,13 +97,9 @@ header{
   font-size:clamp(32px,4vw,48px);
   color:#0c1e45;
 }
-.pd-hero-info h4{
-  font-size:14px;
-  letter-spacing:.05em;
-}
+.pd-hero-info h4{font-size:14px;letter-spacing:.05em}
 .pd-hero-info p.lead{font-size:18px}
 
-/* slide‑in keyframes */
 @keyframes slideInLeft  {from{transform:translateX(-150%);opacity:0}to{transform:none;opacity:1}}
 @keyframes slideInRight {from{transform:translateX(150%); opacity:0}to{transform:none;opacity:1}}
 
@@ -110,9 +139,4 @@ header{
 .training-list li{margin-bottom:.6rem;line-height:1.4}
 
 /* FOOTER ---------------------------------------------------- */
-footer{
-  background:#0c1e45;
-  color:#fff;
-  text-align:center;
-  padding:20px;
-}
+footer{background:#0c1e45;color:#fff;text-align:center;padding:20px}
