@@ -1,89 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Prabin Dhital | Mechanical Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ===== HERO (with background image) ===== -->
+<section class="profile-hero" id="home">
+  <div class="profile-card">
+    <!-- Left: portrait -->
+    <div class="profile-photo">
+      <img src="static/prabin.jpg" alt="Prabin Dhital head‑shot">
+    </div>
 
-  <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Right: details -->
+    <div class="profile-info">
+      <h1>Prabin Dhital</h1>
+      <h4 class="text-uppercase text-muted fw-semibold">Mechanical Engineer • PMP • EIT</h4>
 
-  <!-- Site CSS -->
-  <link rel="stylesheet" href="static/style.css">
-</head>
-<body>
-
-<!-- ========= HEADER ========= -->
-<header>
-  <div class="container d-flex justify-content-between align-items-center">
-    <div class="logo">Prabin Dhital</div>
-    <nav>
-      <a class="nav-button" href="#home">HOME</a>
-      <a class="nav-button" href="#experience">EXPERIENCE</a>
-      <a class="nav-button" href="#education">EDUCATION</a>
-      <a class="nav-button" href="#skills">SKILLS</a>
-      <a class="nav-button" href="#expertise">EXPERTISE</a>
-      <a class="nav-button" href="#projects">PROJECTS</a>
-      <a class="nav-button" href="#contact">CONTACT</a>
-    </nav>
-  </div>
-</header>
-
-<!-- ========= HERO ========= -->
-<section class="hero-section" id="home">
-  <div class="container">
-    <div class="hero-box">
-      <!-- Photo -->
-      <div class="hero-image">
-        <img src="static/prabin.jpg" alt="Prabin Dhital">
-      </div>
-
-      <!-- Info -->
-      <div class="hero-info">
-        <h1>Prabin Dhital, EIT, PMP</h1>
-        <h3>Mechanical Engineer</h3>
-        <p>Email: <a href="mailto:prabindhital@gmail.com">prabindhital@gmail.com</a></p>
-        <p>Peoria, IL · (507) 491‑3996</p>
-        <a href="static/PrabinDhital_Resume.pdf" class="btn btn-primary mt-3" download>
-          <i class="bi bi-download"></i> Download Resume
-        </a>
-      </div>
+      <ul class="contact-list">
+        <li><span>Phone:</span> (507) 491‑3996</li>
+        <li><span>Email:</span> <a href="mailto:prabindhital@gmail.com">prabindhital@gmail.com</a></li>
+        <li><span>Address:</span> Peoria, IL 61615</li>
+        <li><span>Date of Birth:</span> March 14, 1984</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ========= SOCIAL BAR ========= -->
-<section class="social-bar">
+<!-- ===== SOCIAL STRIP ===== -->
+<section class="social-strip">
   <div class="container text-center">
-    <a class="social-icon" href="https://www.linkedin.com/in/pdhital/" target="_blank">
-      <i class="bi bi-linkedin"></i></a>
-    <a class="social-icon" href="https://www.facebook.com/your‑profile" target="_blank">
-      <i class="bi bi-facebook"></i></a>
-    <a class="social-icon" href="https://x.com/your‑handle" target="_blank">
-      <i class="bi bi-twitter-x"></i></a>
-    <a class="social-icon" href="https://www.instagram.com/your‑user" target="_blank">
-      <i class="bi bi-instagram"></i></a>
+    <a class="social-icon" href="https://www.linkedin.com/in/pdhital/"  aria-label="LinkedIn"  target="_blank"><i class="bi bi-linkedin"></i></a>
+    <a class="social-icon" href="https://facebook.com/your‑profile"     aria-label="Facebook"  target="_blank"><i class="bi bi-facebook"></i></a>
+    <a class="social-icon" href="https://x.com/your‑handle"             aria-label="X / Twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
+    <a class="social-icon" href="https://instagram.com/your‑user"       aria-label="Instagram" target="_blank"><i class="bi bi-instagram"></i></a>
   </div>
 </section>
-
-<!-- ========= EXPERIENCE ========= -->
-<section class="section" id="experience">
-  <div class="container">
-    <h2><i class="bi bi-briefcase"></i> Experience</h2>
-    <!-- … your existing experience cards … -->
-  </div>
-</section>
-
-<!-- (education, skills, expertise, projects, contact – unchanged) -->
-
-<footer>
-  <p>&copy; <span id="year"></span> Prabin Dhital. All rights reserved.</p>
-</footer>
-
-<!-- Dynamic year -->
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
