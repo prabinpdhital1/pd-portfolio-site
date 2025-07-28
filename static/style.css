@@ -1,25 +1,42 @@
-/* ---------- GLOBAL (unchanged) ---------- */
+/* ---------- GLOBAL ---------- */
 body{font-family:'Segoe UI',sans-serif;background:#f4f4f4;color:#333;scroll-behavior:smooth}
-header{background:#fff !important;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:20px 0;position:sticky;top:0;z-index:1000}
-.logo{font-size:24px;font-weight:700;color:#0c1e45}.nav-button{margin-left:15px;font-weight:500;color:#0c1e45;text-decoration:none;transition:color .3s}.nav-button:hover{color:#0056b3}
 
-/* ---------- HERO (unchanged) ---------- */
+/* HEADER ---------------------------------------------------- */
+header{background:#fff !important;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:20px 0;position:sticky;top:0;z-index:1000}
+.logo{font-size:30px;font-weight:700;color:#0c1e45}            /* CHANGED: bigger & new text */
+.nav-button{margin-left:15px;font-weight:500;color:#0c1e45;text-decoration:none;transition:color .3s}
+.nav-button:hover{color:#0056b3}
+
+/* HERO ------------------------------------------------------ */
 .pd-hero{min-height:75vh;display:flex;justify-content:center;align-items:center;background:#f4f4f4;scroll-margin-top:90px}
 .pd-hero-box{display:flex;flex-wrap:wrap;align-items:center;background:#fff;border-radius:12px;overflow:hidden;max-width:1100px;width:100%;box-shadow:0 4px 16px rgba(0,0,0,.12)}
 .pd-hero-photo,.pd-hero-info{flex:1 1 500px}
 .pd-hero-photo img{width:100%;height:100%;object-fit:cover;animation:slideInLeft 1s ease forwards}
-.pd-hero-info{padding:60px 50px;animation:slideInRight 1s ease forwards}.pd-hero-info h1{font-size:clamp(32px,4vw,48px);color:#0c1e45}.pd-hero-info h4{font-size:14px;letter-spacing:.05em}.pd-hero-info p.lead{font-size:18px}@keyframes slideInLeft{from{transform:translateX(-150%);opacity:0}to{transform:none;opacity:1}}@keyframes slideInRight{from{transform:translateX(150%);opacity:0}to{transform:none;opacity:1}}
+.pd-hero-info{padding:60px 50px;animation:slideInRight 1s ease forwards}
+.pd-hero-info h1{font-size:clamp(32px,4vw,48px);color:#0c1e45}
+.pd-hero-info h4{font-size:14px;letter-spacing:.05em}
+.pd-hero-info p.lead{font-size:18px}
+@keyframes slideInLeft{from{transform:translateX(-150%);opacity:0}to{transform:none;opacity:1}}
+@keyframes slideInRight{from{transform:translateX(150%);opacity:0}to{transform:none;opacity:1}}
 @media(max-width:767px){.pd-hero-photo,.pd-hero-info{flex:1 1 100%}.pd-hero-info{text-align:center;padding:40px 25px}}
 
-/* ---------- SOCIAL STRIP (unchanged) ---------- */
-.social-strip{background:#0c1e45;padding:24px 0}.social-icon{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;margin:0 6px;background:#fff;color:#0c1e45;font-size:26px;border-radius:8px;transition:transform .3s,background .3s}.social-icon:hover{transform:translateY(-3px);background:#e8e8e8}
+/* SOCIAL STRIP --------------------------------------------- */
+.social-strip{background:#0c1e45;padding:24px 0}
+.social-icon{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;margin:0 6px;background:#fff;color:#0c1e45;font-size:26px;border-radius:8px;transition:transform .3s,background .3s}
+.social-icon:hover{transform:translateY(-3px);background:#e8e8e8}
 
-/* ---------- SECTIONS & CARDS (unchanged) ---------- */
-.section{padding:60px 0}.section h2{color:#0c1e45;margin-bottom:20px}.card-hover{transition:transform .3s,box-shadow .3s}.card-hover:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.1)}
+/* SECTIONS & CARDS ----------------------------------------- */
+.section{padding:60px 0}
+.section h2{color:#0c1e45;margin-bottom:20px}
+.card-hover{transition:transform .3s,box-shadow .3s}
+.card-hover:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.1)}
 
-/* ---------- ABOUT, TRAINING LIST STYLES ---------- */
+/* ABOUT TEXT ------------------------------------------------ */
 .about-text{font-size:18px;line-height:1.6}
-.training-list{list-style:square padding-left:1rem}.training-list li{margin-bottom:.6rem;line-height:1.4}
 
-/* ---------- FOOTER (unchanged) ---------- */
+/* TRAINING LIST -------------------------------------------- */
+.training-list{list-style:square;padding-left:1rem}
+.training-list li{margin-bottom:.6rem;line-height:1.4}
+
+/* FOOTER ---------------------------------------------------- */
 footer{background:#0c1e45;color:#fff;text-align:center;padding:20px}
