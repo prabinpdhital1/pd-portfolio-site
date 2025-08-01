@@ -27,16 +27,18 @@ header{
   text-decoration:none;
   transition:color .3s;
 }
-.nav-button:hover{color:#0056b3}
+.nav-button:hover{
+  color:#0056b3;
+}
 
 /* ----- HEADER ANIMATION (nut & bolt) ---------------------- */
 .header-piece{
   position:absolute;
   top:10px;                /* adjust if they overlap the logo */
-  width:32px;height:32px;
+  width:32px;
+  height:32px;
   pointer-events:none;
 }
-
 .nut{
   left:-40px;
   animation:bounceNut 4s ease-in-out forwards;
@@ -82,7 +84,10 @@ header{
   width:100%;
   box-shadow:0 4px 16px rgba(0,0,0,.12);
 }
-.pd-hero-photo,.pd-hero-info{flex:1 1 500px}
+.pd-hero-photo,
+.pd-hero-info{
+  flex:1 1 500px;
+}
 .pd-hero-photo img{
   width:100%;
   height:100%;
@@ -97,19 +102,37 @@ header{
   font-size:clamp(32px,4vw,48px);
   color:#0c1e45;
 }
-.pd-hero-info h4{font-size:14px;letter-spacing:.05em}
-.pd-hero-info p.lead{font-size:18px}
-
-@keyframes slideInLeft  {from{transform:translateX(-150%);opacity:0}to{transform:none;opacity:1}}
-@keyframes slideInRight {from{transform:translateX(150%); opacity:0}to{transform:none;opacity:1}}
-
+.pd-hero-info h4{
+  font-size:14px;
+  letter-spacing:.05em;
+}
+.pd-hero-info p.lead{
+  font-size:18px;
+}
+@keyframes slideInLeft{
+  from{transform:translateX(-150%);opacity:0;}
+  to{transform:none;opacity:1;}
+}
+@keyframes slideInRight{
+  from{transform:translateX(150%);opacity:0;}
+  to{transform:none;opacity:1;}
+}
 @media(max-width:767px){
-  .pd-hero-photo,.pd-hero-info{flex:1 1 100%}
-  .pd-hero-info{padding:40px 25px;text-align:center}
+  .pd-hero-photo,
+  .pd-hero-info{
+    flex:1 1 100%;
+  }
+  .pd-hero-info{
+    padding:40px 25px;
+    text-align:center;
+  }
 }
 
 /* SOCIAL STRIP --------------------------------------------- */
-.social-strip{background:#0c1e45;padding:24px 0}
+.social-strip{
+  background:#0c1e45;
+  padding:24px 0;
+}
 .social-icon{
   display:inline-flex;
   align-items:center;
@@ -123,20 +146,70 @@ header{
   border-radius:8px;
   transition:transform .3s,background .3s;
 }
-.social-icon:hover{transform:translateY(-3px);background:#e8e8e8}
+.social-icon:hover{
+  transform:translateY(-3px);
+  background:#e8e8e8;
+}
 
 /* SECTIONS & CARDS ----------------------------------------- */
-.section{padding:60px 0}
-.section h2{color:#0c1e45;margin-bottom:20px}
-.card-hover{transition:transform .3s,box-shadow .3s}
-.card-hover:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.1)}
+.section{
+  padding:60px 0;
+}
+.section h2{
+  color:#0c1e45;
+  margin-bottom:20px;
+}
+.card-hover{
+  transition:transform .3s,box-shadow .3s;
+}
+.card-hover:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(0,0,0,.1);
+}
 
 /* ABOUT TEXT ------------------------------------------------ */
-.about-text{font-size:18px;line-height:1.6}
+.about-text{
+  font-size:18px;
+  line-height:1.6;
+}
 
 /* TRAINING LIST -------------------------------------------- */
-.training-list{list-style-type:square;padding-left:1rem}
-.training-list li{margin-bottom:.6rem;line-height:1.4}
+.training-list{
+  list-style-type:square;
+  padding-left:1rem;
+}
+.training-list li{
+  margin-bottom:.6rem;
+  line-height:1.4;
+}
 
 /* FOOTER ---------------------------------------------------- */
-footer{background:#0c1e45;color:#fff;text-align:center;padding:20px}
+footer{
+  background:#0c1e45;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* EXPERIENCE & EDUCATION LOGOS ----------------------------- */
+/* Logo styling for Experience section */
+.experience-logo{
+  width:50px;       /* adjust as needed */
+  height:auto;
+  border-radius:4px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.1);
+  transition:transform .2s ease-in-out;
+}
+/* Logo styling for Education section */
+.education-logo{
+  width:40px;       /* slightly smaller */
+  height:auto;
+  border-radius:4px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.1);
+  transition:transform .2s ease-in-out;
+}
+/* Hover effect */
+.experience-logo:hover,
+.education-logo:hover{
+  transform:scale(1.05);
+}
