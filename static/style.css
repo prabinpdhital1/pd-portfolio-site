@@ -14,9 +14,9 @@ body {
   color: #333;
   margin: 0;
   scroll-behavior: smooth;
+  padding-top: 70px;
 }
 
-/* Links */
 a {
   text-decoration: none;
   color: var(--color-secondary);
@@ -26,9 +26,17 @@ a:hover {
   color: var(--color-primary);
 }
 
-/* NAVBAR */
 .navbar {
   padding: .5rem 1rem;
+  background: var(--color-light);
+}
+.sticky-top {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1020;
 }
 .navbar-brand {
   font-size: 1.5rem;
@@ -45,11 +53,8 @@ a:hover {
   color: var(--color-secondary);
   font-weight: 600;
 }
-.sticky-top {
-  z-index: 1020;
-}
 
-/* HERO */
+/* ---------- HERO ---------- */
 .pd-hero {
   min-height: 75vh;
   display: flex;
@@ -58,89 +63,136 @@ a:hover {
   padding: calc(var(--spacing-base) * 2) 0;
 }
 .pd-hero-box {
-  max-width: 1100px;
-  width: 100%;
-  margin: auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  background: var(--color-light);
+  max-width: 1100px;
+  margin: auto;
+  background: var(--color-bg);    /* matches page background */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+.pd-hero-photo {
+  flex: 0 0 auto;
+  margin-right: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: .3s;
 }
 .profile-photo {
-  width: 160px;
-  height: 160px;
+  width: 300px;       /* halved from 600px */
+  height: auto;
   object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1rem;
+  border-radius: 12px !important;
+  background: var(--color-bg);    /* ensures any transparent edges blend */
+}
+.pd-hero-info {
+  flex: 1 1 auto;
+  padding: var(--spacing-base);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: .6s;
 }
 .tagline {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--color-secondary);
   margin-bottom: 1rem;
 }
-.pd-hero-info {
-  padding: var(--spacing-base);
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .pd-hero-box {
     flex-direction: column;
     text-align: center;
   }
+  .pd-hero-photo {
+    margin: 0 0 var(--spacing-base);
+  }
+  .profile-photo {
+    width: 100%;
+  }
   .pd-hero-info {
     text-align: center;
   }
+  .tagline {
+    font-size: 1.25rem;
+  }
 }
 
-/* SECTIONS */
+/* ---------- SOCIAL STRIP ---------- */
+.social-strip {
+  padding: .5rem 0;
+  background: var(--color-light);
+  text-align: center;
+}
+.social-strip .social-icon {
+  font-size: 2rem;
+  margin: 0 .75rem;
+  transition: transform .2s;
+}
+.social-strip .social-icon.linkedin { color: #0A66C2; }
+.social-strip .social-icon.github   { color: #333; }
+.social-strip .social-icon.google   { color: #4285F4; }
+.social-strip .social-icon.youtube  { color: #FF0000; }
+.social-strip .social-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- SECTION HEADINGS & SPACING ---------- */
 .section {
-  padding: 4rem 0;
-  scroll-margin-top: 100px;
+  padding: 2rem 0;
+  scroll-margin-top: 90px;
 }
 .section h2 {
   color: var(--color-primary);
   margin-bottom: 1.5rem;
   font-size: 2rem;
-  position: relative;
-}
-.section h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: var(--color-secondary);
-  margin-top: .5rem;
-  border-radius: 2px;
 }
 
-/* CARDS & GRID */
+/* ---------- CARDS & GRID ---------- */
 .card-hover {
   transition: transform .3s, box-shadow .3s;
+  background: var(--color-light);
+  border-radius: 8px;
 }
 .card-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
-
-/* SKILLS GRID */
 #skills .row > .col {
   padding: .5rem;
 }
 
-/* PROJECT CARDS */
-#projects .card {
+/* ---------- PROJECTS CARDS ---------- */
+#projects .card-hover {
   border: none;
+  padding: var(--spacing-base);
+  margin-bottom: 1.5rem;
 }
-#projects .card-img-top {
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
+#projects .card-hover h5 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: .75rem;
+}
+#projects .card-hover p,
+#projects .card-hover ul,
+#projects .card-hover ol {
+  margin-bottom: .75rem;
+  color: #444;
+}
+#projects .card-hover ul,
+#projects .card-hover ol {
+  margin-left: 1.5rem;
 }
 
-/* LOGOS */
+/* ---------- EXPERIENCE & EDUCATION LOGOS ---------- */
 .experience-logo,
 .education-logo {
   width: 50px;
@@ -155,34 +207,26 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* TRAINING LIST */
+/* ---------- TRAINING LIST ---------- */
 .training-list li {
   margin-bottom: .75rem;
   font-size: 1rem;
 }
 
-/* CONTACT */
-#contact {
-  background: var(--color-light);
-  padding: 4rem 0;
-  text-align: center;
+/* ---------- CONTACT FORM ---------- */
+.contact-form .form-control {
+  border-radius: .25rem;
+  box-shadow: none;
 }
-#contact .btn {
+.contact-form button {
   padding: .75rem 1.5rem;
-  font-size: 1.1rem;
 }
 
-/* FOOTER */
+/* ---------- FOOTER ---------- */
 footer {
   background: var(--color-primary);
   color: var(--color-light);
   text-align: center;
   padding: 1.5rem 0;
-}
-
-/* SCROLLSPY ACTIVE LINK */
-.navbar-nav .nav-link.active {
-  color: var(--color-secondary);
-  font-weight: 600;
 }
 ```
