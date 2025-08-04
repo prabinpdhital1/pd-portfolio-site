@@ -1,5 +1,3 @@
-/* static/style.css */
-
 /* VARIABLES & GLOBAL */
 :root {
   --color-primary: #0c1e45;
@@ -29,53 +27,92 @@ a:hover {
 }
 
 /* NAVBAR */
-.navbar { padding: .5rem 1rem; }
-.navbar-brand { font-size: 1.5rem; color: var(--color-primary); }
+.navbar {
+  padding: .5rem 1rem;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
 .navbar-nav .nav-link {
-  color: #333; font-weight: 500; margin: 0 .5rem; transition: color .2s;
+  color: #333;
+  font-weight: 500;
+  margin: 0 .5rem;
+  transition: color .2s;
 }
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: var(--color-secondary); font-weight: 600;
+  color: var(--color-secondary);
+  font-weight: 600;
 }
-.sticky-top { z-index: 1020; }
+.sticky-top {
+  z-index: 1020;
+}
 
 /* HERO */
 .pd-hero {
-  min-height: 75vh; display: flex; align-items: center;
-  background: var(--color-bg); padding: calc(var(--spacing-base)*2) 0;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  background: var(--color-bg);
+  padding: calc(var(--spacing-base) * 2) 0;
 }
 .pd-hero-box {
-  max-width: 1100px; width: 100%; margin: auto;
-  display: flex; flex-wrap: wrap; align-items: center;
-  background: var(--color-light); border-radius: 12px;
-  overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--color-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 .profile-photo {
-  width: 160px; height: 160px; object-fit: cover;
-  border-radius: 50%; margin-bottom: 1rem;
-}
-.tagline {
-  font-size: 1.25rem; color: var(--color-secondary);
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
   margin-bottom: 1rem;
 }
-.pd-hero-info { padding: var(--spacing-base); }
+.tagline {
+  font-size: 1.25rem;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+.pd-hero-info {
+  padding: var(--spacing-base);
+}
+
 @media (max-width: 767px) {
-  .pd-hero-box { flex-direction: column; text-align: center; }
-  .pd-hero-info { text-align: center; }
+  .pd-hero-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .pd-hero-info {
+    text-align: center;
+  }
 }
 
 /* SECTIONS */
 .section {
-  padding: 4rem 0; scroll-margin-top: 100px;
+  padding: 4rem 0;
+  scroll-margin-top: 100px;
 }
 .section h2 {
-  color: var(--color-primary); margin-bottom: 1.5rem;
-  font-size: 2rem; position: relative;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  position: relative;
 }
 .section h2::after {
-  content: ''; display: block; width: 60px; height: 4px;
-  background: var(--color-secondary); margin-top: .5rem;
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--color-secondary);
+  margin-top: .5rem;
   border-radius: 2px;
 }
 
@@ -89,40 +126,63 @@ a:hover {
 }
 
 /* SKILLS GRID */
-#skills .row > .col { padding: .5rem; }
+#skills .row > .col {
+  padding: .5rem;
+}
 
 /* PROJECT CARDS */
-#projects .card { border: none; }
+#projects .card {
+  border: none;
+}
 #projects .card-img-top {
-  height: 140px; object-fit: cover; border-radius: 8px 8px 0 0;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
 }
 
 /* LOGOS */
 .experience-logo,
 .education-logo {
-  width: 50px; height: auto; border-radius: 4px;
+  width: 50px;
+  height: auto;
+  border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  transition: transform .2s; margin-right: 1rem;
+  transition: transform .2s;
+  margin-right: 1rem;
 }
 .experience-logo:hover,
-.education-logo:hover { transform: scale(1.05); }
+.education-logo:hover {
+  transform: scale(1.05);
+}
 
 /* TRAINING LIST */
-.training-list li { margin-bottom: .75rem; font-size: 1rem; }
+.training-list li {
+  margin-bottom: .75rem;
+  font-size: 1rem;
+}
 
 /* CONTACT */
 #contact {
-  background: var(--color-light); padding: 4rem 0; text-align: center;
+  background: var(--color-light);
+  padding: 4rem 0;
+  text-align: center;
 }
-#contact .btn { padding: .75rem 1.5rem; font-size: 1.1rem; }
+#contact .btn {
+  padding: .75rem 1.5rem;
+  font-size: 1.1rem;
+}
 
 /* FOOTER */
 footer {
-  background: var(--color-primary); color: var(--color-light);
-  text-align: center; padding: 1.5rem 0;
+  background: var(--color-primary);
+  color: var(--color-light);
+  text-align: center;
+  padding: 1.5rem 0;
 }
 
 /* SCROLLSPY ACTIVE LINK */
 .navbar-nav .nav-link.active {
-  color: var(--color-secondary); font-weight: 600;
+  color: var(--color-secondary);
+  font-weight: 600;
 }
+```
