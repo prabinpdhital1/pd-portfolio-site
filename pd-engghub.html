@@ -1,3 +1,4 @@
+<!-- pd-engghub.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Site CSS -->
-  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
 
@@ -18,15 +19,15 @@
   <header>
     <nav id="mainNav" class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html#home">Prabin Dhital’s Portfolio</a>
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}#home">Prabin Dhital’s Portfolio</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html#home">HOME</a></li>
-            <li class="nav-item"><a class="nav-link active" href="pd-engghub.html">PD-EnggHub</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#home">HOME</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('pd_engghub') }}">PD-EnggHub</a></li>
           </ul>
         </div>
       </div>
@@ -35,7 +36,7 @@
 
   <!-- HOME BUTTON -->
   <div class="container mt-4">
-    <a href="index.html#home" class="btn btn-outline-primary">
+    <a href="{{ url_for('home') }}#home" class="btn btn-outline-primary">
       <i class="bi bi-house me-1"></i> Home
     </a>
   </div>
@@ -44,7 +45,7 @@
   <section id="hub-content" class="section">
     <div class="container">
       <h2 class="mb-4">Welcome to PD-EnggHub</h2>
-      <!-- Your hub-specific content here -->
+      <!-- Hub-specific content here -->
     </div>
   </section>
 
