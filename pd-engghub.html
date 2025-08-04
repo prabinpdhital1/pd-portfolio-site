@@ -1,4 +1,3 @@
-<!-- pd-engghub.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +5,37 @@
   <title>PD-EnggHub | Prabin Dhital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap + Icons -->
+  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Inline styles for converter box -->
+  <style>
+    .converter-box {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 260px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 2000;
+    }
+    .converter-box h5 {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      color: #0c1e45;
+    }
+    .converter-box input {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
 
@@ -20,8 +44,7 @@
     <nav id="mainNav" class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
       <div class="container">
         <a class="navbar-brand fw-bold" href="{{ url_for('home') }}#home">Prabin Dhital’s Portfolio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -34,27 +57,40 @@
     </nav>
   </header>
 
-  <!-- HOME BUTTON -->
+  <!-- MAIN CONTENT -->
   <div class="container mt-4">
-    <a href="{{ url_for('home') }}#home" class="btn btn-outline-primary">
-      <i class="bi bi-house me-1"></i> Home
-    </a>
+    <h2>Welcome to PD-EnggHub</h2>
+    <p>Here you can find engineering resources, discussions, and tools.</p>
+    <!-- …other hub content… -->
   </div>
 
-  <!-- HUB CONTENT -->
-  <section id="hub-content" class="section">
-    <div class="container">
-      <h2 class="mb-4">Welcome to PD-EnggHub</h2>
-      <!-- Hub-specific content here -->
-    </div>
-  </section>
+  <!-- UNIT CONVERTER BOX -->
+  <div class="converter-box">
+    <h5>Unit Converter</h5>
+    <label for="mmInput" class="form-label">Millimeters</label>
+    <input type="number" id="mmInput" class="form-control" placeholder="mm">
+    <label for="inInput" class="form-label">Inches</label>
+    <input type="number" id="inInput" class="form-control" placeholder="in">
+    <button id="convertBtn" class="btn btn-primary btn-sm w-100">Convert</button>
+  </div>
 
   <!-- FOOTER -->
   <footer class="text-center py-4">
     <small>&copy; 2025 Prabin Dhital</small>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Bootstrap JS + Converter Script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('convertBtn').addEventListener('click', () => {
+      const mmVal = parseFloat(document.getElementById('mmInput').value);
+      const inVal = parseFloat(document.getElementById('inInput').value);
+      if (!isNaN(mmVal)) {
+        document.getElementById('inInput').value = (mmVal / 25.4).toFixed(4);
+      } else if (!isNaN(inVal)) {
+        document.getElementById('mmInput').value = (inVal * 25.4).toFixed(2);
+      }
+    });
+  </script>
 </body>
 </html>
