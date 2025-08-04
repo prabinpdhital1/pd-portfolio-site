@@ -16,6 +16,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Links */
 a {
   text-decoration: none;
   color: var(--color-secondary);
@@ -83,7 +84,6 @@ a:hover {
 .pd-hero-info {
   padding: var(--spacing-base);
 }
-
 @media (max-width: 767px) {
   .pd-hero-box {
     flex-direction: column;
@@ -124,10 +124,12 @@ a:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
+/* Skills grid */
 #skills .row > .col {
   padding: .5rem;
 }
 
+/* Projects cards */
 #projects .card {
   border: none;
 }
@@ -137,7 +139,7 @@ a:hover {
   border-radius: 8px 8px 0 0;
 }
 
-/* ---------- EXPERIENCE & EDUCATION LOGOS ---------- */
+/* Logos */
 .experience-logo,
 .education-logo {
   width: 50px;
@@ -152,13 +154,13 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* ---------- TRAINING LIST ---------- */
+/* Training list */
 .training-list li {
   margin-bottom: .75rem;
   font-size: 1rem;
 }
 
-/* ---------- CONTACT ---------- */
+/* Contact */
 #contact {
   background: var(--color-light);
   padding: 4rem 0;
@@ -169,7 +171,7 @@ a:hover {
   font-size: 1.1rem;
 }
 
-/* ---------- FOOTER ---------- */
+/* Footer */
 footer {
   background: var(--color-primary);
   color: var(--color-light);
@@ -177,7 +179,7 @@ footer {
   padding: 1.5rem 0;
 }
 
-/* ---------- SCROLLSPY (ACTIVE LINK) ---------- */
+/* Scrollspy active link */
 .navbar-nav .nav-link.active {
   color: var(--color-secondary);
   font-weight: 600;
