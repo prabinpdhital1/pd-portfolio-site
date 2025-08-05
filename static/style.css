@@ -26,6 +26,7 @@ a:hover {
   color: var(--color-primary);
 }
 
+/* NAVBAR */
 .navbar {
   padding: .5rem 1rem;
   background: var(--color-light);
@@ -54,7 +55,7 @@ a:hover {
   font-weight: 600;
 }
 
-/* ---------- HERO ---------- */
+/* HERO */
 .pd-hero {
   min-height: 75vh;
   display: flex;
@@ -68,7 +69,7 @@ a:hover {
   align-items: center;
   max-width: 1100px;
   margin: auto;
-  background: var(--color-bg);    /* matches page background */
+  background: var(--color-bg);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
@@ -83,11 +84,11 @@ a:hover {
   animation-delay: .3s;
 }
 .profile-photo {
-  width: 300px;       /* halved from 600px */
+  width: 300px;
   height: auto;
   object-fit: cover;
   border-radius: 12px !important;
-  background: var(--color-bg);    /* ensures any transparent edges blend */
+  background: var(--color-bg);
 }
 .pd-hero-info {
   flex: 1 1 auto;
@@ -126,7 +127,7 @@ a:hover {
   }
 }
 
-/* ---------- SOCIAL STRIP ---------- */
+/* SOCIAL STRIP */
 .social-strip {
   padding: .5rem 0;
   background: var(--color-light);
@@ -145,7 +146,7 @@ a:hover {
   transform: scale(1.1);
 }
 
-/* ---------- SECTION HEADINGS & SPACING ---------- */
+/* SECTION HEADINGS & SPACING */
 .section {
   padding: 2rem 0;
   scroll-margin-top: 90px;
@@ -156,7 +157,7 @@ a:hover {
   font-size: 2rem;
 }
 
-/* ---------- CARDS & GRID ---------- */
+/* CARDS & GRID */
 .card-hover {
   transition: transform .3s, box-shadow .3s;
   background: var(--color-light);
@@ -170,7 +171,7 @@ a:hover {
   padding: .5rem;
 }
 
-/* ---------- PROJECTS CARDS ---------- */
+/* PROJECTS CARDS */
 #projects .card-hover {
   border: none;
   padding: var(--spacing-base);
@@ -192,7 +193,7 @@ a:hover {
   margin-left: 1.5rem;
 }
 
-/* ---------- EXPERIENCE & EDUCATION LOGOS ---------- */
+/* EXPERIENCE & EDUCATION LOGOS */
 .experience-logo,
 .education-logo {
   width: 50px;
@@ -207,13 +208,13 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* ---------- TRAINING LIST ---------- */
+/* TRAINING LIST */
 .training-list li {
   margin-bottom: .75rem;
   font-size: 1rem;
 }
 
-/* ---------- CONTACT FORM ---------- */
+/* CONTACT FORM */
 .contact-form .form-control {
   border-radius: .25rem;
   box-shadow: none;
@@ -222,7 +223,7 @@ a:hover {
   padding: .75rem 1.5rem;
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer {
   background: var(--color-primary);
   color: var(--color-light);
@@ -230,4 +231,62 @@ footer {
   padding: 1.5rem 0;
 }
 
+/* ---------- Unit Conversion Styles ---------- */
 
+/* Unit Conversion Card */
+#unit-conversion .card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Card header */
+#unit-conversion .card-header {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+/* Category headings */
+#unit-conversion h5 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Nested lists */
+#unit-conversion ul {
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#unit-conversion ul li {
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+/* Add a custom bullet */
+#unit-conversion ul li::before {
+  content: "•";
+  color: var(--color-secondary);
+  position: absolute;
+  left: -1rem;
+  top: 0.3rem;
+  font-size: 0.8rem;
+}
+
+/* Make the lists scrollable if too long */
+#unit-conversion .card-body {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 1rem; /* avoid content under scrollbar */
+}
+
+/* Ensure mobile doesn’t get overwhelmed */
+@media (max-width: 767px) {
+  #unit-conversion .card-body {
+    max-height: none;
+    overflow: visible;
+  }
+}
