@@ -11,34 +11,6 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="static/style.css">
-
-  <style>
-    /* Inline overrides for converter embed */
-    .converter-embed {
-      background: var(--color-light);
-      border: 2px solid var(--color-secondary);
-      border-radius: 8px;
-      padding: 1rem;
-    }
-    .converter-embed iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 4px;
-    }
-    /* Style select control to match theme */
-    #converterSelect {
-      border: 1px solid var(--color-secondary);
-      border-radius: .375rem;
-    }
-    #converterSelect:focus {
-      box-shadow: 0 0 0 .25rem rgba(0,86,179,0.25);
-    }
-    label.form-label {
-      color: var(--color-primary);
-      font-weight: 600;
-    }
-  </style>
 </head>
 <body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#navCollapse" data-bs-offset="100" tabindex="0">
 
@@ -63,25 +35,260 @@
   <!-- MAIN CONTENT -->
   <main class="container flex-fill mt-4">
     <h2>Welcome to PD-EnggHub</h2>
-    <p>Explore converters for different unit categories directly within this page.</p>
+    <p>Explore engineering resources and tools—starting with our comprehensive unit conversion reference below.</p>
   </main>
 
-  <!-- UNIT CONVERTER EMBED -->
-  <section class="section" id="converter">
-    <div class="container">
-      <h2><i class="bi bi-calculator text-secondary"></i> <span class="text-primary">Unit Converter</span></h2>
-      <div class="mb-3">
-        <label for="converterSelect" class="form-label">Choose Converter:</label>
-        <select id="converterSelect" class="form-select">
-          <option value="https://www.unitconverters.net/temperature-converter.html">Temperature</option>
-          <option value="https://www.unitconverters.net/area-converter.html">Area</option>
-          <option value="https://www.unitconverters.net/volume-converter.html">Volume</option>
-          <option value="https://www.unitconverters.net/weight-and-mass-converter.html">Weight</option>
-          <option value="https://www.unitconverters.net/time-converter.html">Time</option>
-        </select>
+  <!-- UNIT CONVERSION CATEGORIES -->
+  <section id="unit-conversion" class="container my-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-secondary text-light">
+        <h3 class="mb-0"><i class="bi bi-arrows-expand"></i> Unit Conversion</h3>
       </div>
-      <div class="converter-embed mb-4">
-        <iframe id="converterFrame" src="https://www.unitconverters.net/temperature-converter.html"></iframe>
+      <div class="card-body">
+
+        <!-- Temperature -->
+        <h5>Temperature</h5>
+        <ul class="list-unstyled ms-3">
+          <li>kelvin [K]</li>
+          <li>Celsius [°C]</li>
+          <li>Fahrenheit [°F]</li>
+          <li>Rankine [°R]</li>
+          <li>Reaumur [°r]</li>
+          <li>Triple point of water</li>
+        </ul>
+
+        <!-- Area -->
+        <h5 class="mt-4">Area</h5>
+        <ul class="list-unstyled ms-3">
+          <li>square meter [m^2]</li>
+          <li>square kilometer [km^2]</li>
+          <li>square centimeter [cm^2]</li>
+          <li>square millimeter [mm^2]</li>
+          <li>square micrometer [µm^2]</li>
+          <li>hectare [ha]</li>
+          <li>acre [a]</li>
+          <li>square mile [mi^2]</li>
+          <li>square yard [yd^2]</li>
+          <li>square foot [ft^2]</li>
+          <li>square inch [in^2]</li>
+          <li>square hectometer [hm^2]</li>
+          <li>square dekameter [dam^2]</li>
+          <li>square decimeter [dm^2]</li>
+          <li>square nanometer [nm^2]</li>
+          <li>are [a]</li>
+          <li>barn [b]</li>
+          <li>square mile (US survey)</li>
+          <li>square foot (US survey)</li>
+          <li>circular inch</li>
+          <li>township</li>
+          <li>section</li>
+          <li>acre (US survey) [ac]</li>
+          <li>rood</li>
+          <li>square chain [ch^2]</li>
+          <li>square rod</li>
+          <li>square rod (US survey)</li>
+          <li>square perch</li>
+          <li>square pole</li>
+          <li>square mil [mil^2]</li>
+          <li>circular mil</li>
+          <li>homestead</li>
+          <li>sabin</li>
+          <li>arpent</li>
+          <li>cuerda</li>
+          <li>plaza</li>
+          <li>varas castellanas cuad</li>
+          <li>varas conquuerras cuad</li>
+          <li>Electron cross section</li>
+        </ul>
+
+        <!-- Volume -->
+        <h5 class="mt-4">Volume</h5>
+        <ul class="list-unstyled ms-3">
+          <li>cubic meter [m³]</li>
+          <li>cubic kilometer [km³]</li>
+          <li>cubic centimeter [cm³]</li>
+          <li>cubic millimeter [mm³]</li>
+          <li>liter [L]</li>
+          <li>milliliter [mL]</li>
+          <li>gallon (US) [gal (US)]</li>
+          <li>quart (US) [qt (US)]</li>
+          <li>pint (US) [pt (US)]</li>
+          <li>cup (US)</li>
+          <li>tablespoon (US)</li>
+          <li>teaspoon (US)</li>
+          <li>cubic mile [mi³]</li>
+          <li>cubic yard [yd³]</li>
+          <li>cubic foot [ft³]</li>
+          <li>minim (UK)</li>
+          <li>ton register [ton reg]</li>
+          <li>ccf</li>
+          <li>hundred-cubic foot</li>
+          <li>acre-foot [ac*ft]</li>
+          <li>acre-foot (US survey)</li>
+          <li>acre-inch [ac*in]</li>
+          <li>dekastere</li>
+          <li>stere [st]</li>
+          <li>decistere</li>
+          <li>cord [cd]</li>
+          <li>tun</li>
+          <li>hogshead</li>
+          <li>board foot</li>
+          <li>dram [dr]</li>
+          <li>cubic inch [in³]</li>
+          <li>cubic decimeter [dm³]</li>
+          <li>exaliter [EL]</li>
+          <li>petaliter [PL]</li>
+          <li>teraliter [TL]</li>
+          <li>gigaliter [GL]</li>
+          <li>megaliter [ML]</li>
+          <li>kiloliter [kL]</li>
+          <li>hectoliter [hL]</li>
+          <li>dekaliter [daL]</li>
+          <li>deciliter [dL]</li>
+          <li>centiliter [cL]</li>
+          <li>cor (Biblical)</li>
+          <li>homer (Biblical)</li>
+          <li>bath (Biblical)</li>
+          <li>hin (Biblical)</li>
+          <li>cab (Biblical)</li>
+          <li>log (Biblical)</li>
+          <li>Taza (Spanish)</li>
+          <li>Earth’s volume</li>
+          <li>microliter [µL]</li>
+          <li>nanoliter [nL]</li>
+          <li>picoliter [pL]</li>
+          <li>femtoliter [fL]</li>
+          <li>attoliter [aL]</li>
+          <li>cc [cc, cm³]</li>
+          <li>drop</li>
+          <li>barrel (oil) [bbl (oil)]</li>
+          <li>barrel (US) [bbl (US)]</li>
+          <li>barrel (UK) [bbl (UK)]</li>
+          <li>gallon (UK) [gal (UK)]</li>
+          <li>quart (UK) [qt (UK)]</li>
+          <li>pint (UK) [pt (UK)]</li>
+          <li>cup (metric)</li>
+          <li>cup (UK)</li>
+          <li>fluid ounce (US) [fl oz (US)]</li>
+          <li>fluid ounce (UK) [fl oz (UK)]</li>
+          <li>tablespoon (UK)</li>
+          <li>dessertspoon (metric)</li>
+          <li>dessertspoon (US)</li>
+          <li>dessertspoon (UK)</li>
+          <li>teaspoon (UK)</li>
+          <li>gill (US) [gi (US)]</li>
+          <li>gill (UK) [gi (UK)]</li>
+          <li>minim (US)</li>
+        </ul>
+
+        <!-- Weight -->
+        <h5 class="mt-4">Weight</h5>
+        <ul class="list-unstyled ms-3">
+          <li>kilogram [kg]</li>
+          <li>gram [g]</li>
+          <li>milligram [mg]</li>
+          <li>ton (metric) [t]</li>
+          <li>pound [lb]</li>
+          <li>ounce [oz]</li>
+          <li>carat [car]</li>
+          <li>ton (short) [ton (US)]</li>
+          <li>ton (long) [ton (UK)]</li>
+          <li>atomic mass unit [u]</li>
+          <li>exagram [Eg]</li>
+          <li>petagram [Pg]</li>
+          <li>teragram [Tg]</li>
+          <li>gigagram [Gg]</li>
+          <li>megagram [Mg]</li>
+          <li>hectogram [hg]</li>
+          <li>dekagram [dag]</li>
+          <li>decigram [dg]</li>
+          <li>centigram [cg]</li>
+          <li>microgram [µg]</li>
+          <li>nanogram [ng]</li>
+          <li>picogram [pg]</li>
+          <li>femtogram [fg]</li>
+          <li>attogram [ag]</li>
+          <li>dalton</li>
+          <li>kilogram-force second²/meter</li>
+          <li>kilopound [kip]</li>
+          <li>slug</li>
+          <li>pound-force second²/foot</li>
+          <li>pound (troy or apothecary)</li>
+          <li>ton (assay) (US) [AT (US)]</li>
+          <li>ton (assay) (UK) [AT (UK)]</li>
+          <li>kiloton (metric) [kt]</li>
+          <li>quintal (metric) [cwt]</li>
+          <li>hundredweight (US)</li>
+          <li>hundredweight (UK)</li>
+          <li>quarter (US) [qr (US)]</li>
+          <li>quarter (UK) [qr (UK)]</li>
+          <li>stone (US)</li>
+          <li>stone (UK)</li>
+          <li>tonne [t]</li>
+          <li>pennyweight [pwt]</li>
+          <li>scruple (apothecary) [s.ap]</li>
+          <li>grain [gr]</li>
+          <li>gamma</li>
+          <li>talent (Biblical Hebrew)</li>
+          <li>mina (Biblical Hebrew)</li>
+          <li>shekel (Biblical Hebrew)</li>
+          <li>bekan (Biblical Hebrew)</li>
+          <li>gerah (Biblical Hebrew)</li>
+          <li>tetradrachma (Biblical Greek)</li>
+          <li>didrachma (Biblical Greek)</li>
+          <li>drachma (Biblical Greek)</li>
+          <li>denarius (Biblical Roman)</li>
+          <li>assarion (Biblical Roman)</li>
+          <li>quadrans (Biblical Roman)</li>
+          <li>lepton (Biblical Roman)</li>
+          <li>Planck mass</li>
+          <li>Electron mass (rest)</li>
+          <li>Muon mass</li>
+          <li>Proton mass</li>
+          <li>Neutron mass</li>
+          <li>Deuteron mass</li>
+          <li>Earth’s mass</li>
+          <li>Sun’s mass</li>
+        </ul>
+
+        <!-- Time -->
+        <h5 class="mt-4">Time</h5>
+        <ul class="list-unstyled ms-3">
+          <li>second [s]</li>
+          <li>millisecond [ms]</li>
+          <li>microsecond [µs]</li>
+          <li>nanosecond [ns]</li>
+          <li>picosecond [ps]</li>
+          <li>femtosecond [fs]</li>
+          <li>attosecond [as]</li>
+          <li>shake</li>
+          <li>minute [min]</li>
+          <li>hour [h]</li>
+          <li>day [d]</li>
+          <li>week</li>
+          <li>fortnight</li>
+          <li>month</li>
+          <li>month (synodic)</li>
+          <li>year [y]</li>
+          <li>year (Julian)</li>
+          <li>year (leap)</li>
+          <li>year (tropical)</li>
+          <li>year (sidereal)</li>
+          <li>decade</li>
+          <li>century</li>
+          <li>millennium</li>
+          <li>day (sidereal)</li>
+          <li>hour (sidereal)</li>
+          <li>minute (sidereal)</li>
+          <li>second (sidereal)</li>
+          <li>septennial</li>
+          <li>octennial</li>
+          <li>novenial</li>
+          <li>quindecennial</li>
+          <li>quinquennial</li>
+          <li>Planck time</li>
+        </ul>
+
       </div>
     </div>
   </section>
@@ -91,12 +298,7 @@
     <small>&copy; 2025 Prabin Dhital</small>
   </footer>
 
-  <!-- Bootstrap JS + Embed Switch Script -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const select = document.getElementById('converterSelect');
-    const frame = document.getElementById('converterFrame');
-    select.addEventListener('change', () => frame.src = select.value);
-  </script>
 </body>
 </html>
