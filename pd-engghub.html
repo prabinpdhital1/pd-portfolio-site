@@ -12,14 +12,14 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="static/style.css">
 </head>
-<body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#navCollapse" data-bs-offset="100" tabindex="0">
+<body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#navCollapse" data-bs-offset="100">
 
   <!-- NAVBAR -->
   <header>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
       <div class="container">
         <a class="navbar-brand fw-bold" href="index.html#home">Prabin Dhital’s Portfolio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navCollapse">
@@ -47,261 +47,31 @@
       <div class="card-body">
 
         <!-- Category selector -->
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="convCategory" class="form-label">Category</label>
           <select id="convCategory" class="form-select">
-            <option>Temperature</option>
-            <option>Area</option>
-            <option>Volume</option>
-            <option>Weight</option>
-            <option>Time</option>
+            <option value="Temperature">Temperature</option>
+            <option value="Area">Area</option>
+            <option value="Volume">Volume</option>
+            <option value="Weight">Weight</option>
+            <option value="Time">Time</option>
           </select>
         </div>
 
-        <!-- From / To lists -->
-        <div class="conversion-box">
-          <!-- FROM -->
-          <div class="flex-fill me-2">
+        <!-- From / To lists + input/result -->
+        <div class="conversion-box mb-3">
+          <!-- FROM side -->
+          <div class="flex-fill me-3 d-flex flex-column">
             <label for="convFrom" class="form-label">From:</label>
-            <select id="convFrom" class="form-select" size="12">
-              <optgroup label="Temperature">
-                <option>kelvin [K]</option>
-                <option>Celsius [°C]</option>
-                <option>Fahrenheit [°F]</option>
-                <option>Rankine [°R]</option>
-                <option>Reaumur [°r]</option>
-                <option>Triple point of water</option>
-              </optgroup>
-              <optgroup label="Area">
-                <option>square meter [m^2]</option>
-                <option>square kilometer [km^2]</option>
-                <option>square centimeter [cm^2]</option>
-                <option>square millimeter [mm^2]</option>
-                <option>square micrometer [µm^2]</option>
-                <option>hectare [ha]</option>
-                <option>acre [a]</option>
-                <option>square mile [mi^2]</option>
-                <option>square yard [yd^2]</option>
-                <option>square foot [ft^2]</option>
-                <option>square inch [in^2]</option>
-                <option>square hectometer [hm^2]</option>
-                <option>square dekameter [dam^2]</option>
-                <option>square decimeter [dm^2]</option>
-                <option>square nanometer [nm^2]</option>
-                <option>are [a]</option>
-                <option>barn [b]</option>
-                <option>square mile (US survey)</option>
-                <option>square foot (US survey)</option>
-                <option>circular inch</option>
-                <option>township</option>
-                <option>section</option>
-                <option>acre (US survey) [ac]</option>
-                <option>rood</option>
-                <option>square chain [ch^2]</option>
-                <option>square rod</option>
-                <option>square rod (US survey)</option>
-                <option>square perch</option>
-                <option>square pole</option>
-                <option>square mil [mil^2]</option>
-                <option>circular mil</option>
-                <option>homestead</option>
-                <option>sabin</option>
-                <option>arpent</option>
-                <option>cuerda</option>
-                <option>plaza</option>
-                <option>varas castellanas cuad</option>
-                <option>varas conquuerras cuad</option>
-                <option>Electron cross section</option>
-              </optgroup>
-              <optgroup label="Volume">
-                <option>cubic meter [m³]</option>
-                <option>cubic kilometer [km³]</option>
-                <option>cubic centimeter [cm³]</option>
-                <option>cubic millimeter [mm³]</option>
-                <option>liter [L]</option>
-                <option>milliliter [mL]</option>
-                <option>gallon (US) [gal (US)]</option>
-                <option>quart (US) [qt (US)]</option>
-                <option>pint (US) [pt (US)]</option>
-                <option>cup (US)</option>
-                <option>tablespoon (US)</option>
-                <option>teaspoon (US)</option>
-                <option>cubic mile [mi³]</option>
-                <option>cubic yard [yd³]</option>
-                <option>cubic foot [ft³]</option>
-                <option>minim (UK)</option>
-                <option>ton register [ton reg]</option>
-                <option>ccf</option>
-                <option>hundred-cubic foot</option>
-                <option>acre-foot [ac*ft]</option>
-                <option>acre-foot (US survey)</option>
-                <option>acre-inch [ac*in]</option>
-                <option>dekastere</option>
-                <option>stere [st]</option>
-                <option>decistere</option>
-                <option>cord [cd]</option>
-                <option>tun</option>
-                <option>hogshead</option>
-                <option>board foot</option>
-                <option>dram [dr]</option>
-                <option>cubic inch [in³]</option>
-                <option>cubic decimeter [dm³]</option>
-                <option>exaliter [EL]</option>
-                <option>petaliter [PL]</option>
-                <option>teraliter [TL]</option>
-                <option>gigaliter [GL]</option>
-                <option>megaliter [ML]</option>
-                <option>kiloliter [kL]</option>
-                <option>hectoliter [hL]</option>
-                <option>dekaliter [daL]</option>
-                <option>deciliter [dL]</option>
-                <option>centiliter [cL]</option>
-                <option>cor (Biblical)</option>
-                <option>homer (Biblical)</option>
-                <option>bath (Biblical)</option>
-                <option>hin (Biblical)</option>
-                <option>cab (Biblical)</option>
-                <option>log (Biblical)</option>
-                <option>Taza (Spanish)</option>
-                <option>Earth’s volume</option>
-                <option>microliter [µL]</option>
-                <option>nanoliter [nL]</option>
-                <option>picoliter [pL]</option>
-                <option>femtoliter [fL]</option>
-                <option>attoliter [aL]</option>
-                <option>cc [cc, cm³]</option>
-                <option>drop</option>
-                <option>barrel (oil) [bbl (oil)]</option>
-                <option>barrel (US) [bbl (US)]</option>
-                <option>barrel (UK) [bbl (UK)]</option>
-                <option>gallon (UK) [gal (UK)]</option>
-                <option>quart (UK) [qt (UK)]</option>
-                <option>pint (UK) [pt (UK)]</option>
-                <option>cup (metric)</option>
-                <option>cup (UK)</option>
-                <option>fluid ounce (US) [fl oz (US)]</option>
-                <option>fluid ounce (UK) [fl oz (UK)]</option>
-                <option>tablespoon (UK)</option>
-                <option>dessertspoon (metric)</option>
-                <option>dessertspoon (US)</option>
-                <option>dessertspoon (UK)</option>
-                <option>teaspoon (UK)</option>
-                <option>gill (US) [gi (US)]</option>
-                <option>gill (UK) [gi (UK)]</option>
-                <option>minim (US)</option>
-              </optgroup>
-              <optgroup label="Weight">
-                <option>kilogram [kg]</option>
-                <option>gram [g]</option>
-                <option>milligram [mg]</option>
-                <option>ton (metric) [t]</option>
-                <option>pound [lb]</option>
-                <option>ounce [oz]</option>
-                <option>carat [car]</option>
-                <option>ton (short) [ton (US)]</option>
-                <option>ton (long) [ton (UK)]</option>
-                <option>atomic mass unit [u]</option>
-                <option>exagram [Eg]</option>
-                <option>petagram [Pg]</option>
-                <option>teragram [Tg]</option>
-                <option>gigagram [Gg]</option>
-                <option>megagram [Mg]</option>
-                <option>hectogram [hg]</option>
-                <option>dekagram [dag]</option>
-                <option>decigram [dg]</option>
-                <option>centigram [cg]</option>
-                <option>microgram [µg]</option>
-                <option>nanogram [ng]</option>
-                <option>picogram [pg]</option>
-                <option>femtogram [fg]</option>
-                <option>attogram [ag]</option>
-                <option>dalton</option>
-                <option>kilogram-force second²/meter</option>
-                <option>kilopound [kip]</option>
-                <option>slug</option>
-                <option>pound-force second²/foot</option>
-                <option>pound (troy or apothecary)</option>
-                <option>ton (assay) (US) [AT (US)]</option>
-                <option>ton (assay) (UK) [AT (UK)]</option>
-                <option>kiloton (metric) [kt]</option>
-                <option>quintal (metric) [cwt]</option>
-                <option>hundredweight (US)</option>
-                <option>hundredweight (UK)</option>
-                <option>quarter (US) [qr (US)]</option>
-                <option>quarter (UK) [qr (UK)]</option>
-                <option>stone (US)</option>
-                <option>stone (UK)</option>
-                <option>tonne [t]</option>
-                <option>pennyweight [pwt]</option>
-                <option>scruple (apothecary) [s.ap]</option>
-                <option>grain [gr]</option>
-                <option>gamma</option>
-                <option>talent (Biblical Hebrew)</option>
-                <option>mina (Biblical Hebrew)</option>
-                <option>shekel (Biblical Hebrew)</option>
-                <option>bekan (Biblical Hebrew)</option>
-                <option>gerah (Biblical Hebrew)</option>
-                <option>tetradrachma (Biblical Greek)</option>
-                <option>didrachma (Biblical Greek)</option>
-                <option>drachma (Biblical Greek)</option>
-                <option>denarius (Biblical Roman)</option>
-                <option>assarion (Biblical Roman)</option>
-                <option>quadrans (Biblical Roman)</option>
-                <option>lepton (Biblical Roman)</option>
-                <option>Planck mass</option>
-                <option>Electron mass (rest)</option>
-                <option>Muon mass</option>
-                <option>Proton mass</option>
-                <option>Neutron mass</option>
-                <option>Deuteron mass</option>
-                <option>Earth’s mass</option>
-                <option>Sun’s mass</option>
-              </optgroup>
-              <optgroup label="Time">
-                <option>second [s]</option>
-                <option>millisecond [ms]</option>
-                <option>microsecond [µs]</option>
-                <option>nanosecond [ns]</option>
-                <option>picosecond [ps]</option>
-                <option>femtosecond [fs]</option>
-                <option>attosecond [as]</option>
-                <option>shake</option>
-                <option>minute [min]</option>
-                <option>hour [h]</option>
-                <option>day [d]</option>
-                <option>week</option>
-                <option>fortnight</option>
-                <option>month</option>
-                <option>month (synodic)</option>
-                <option>year [y]</option>
-                <option>year (Julian)</option>
-                <option>year (leap)</option>
-                <option>year (tropical)</option>
-                <option>year (sidereal)</option>
-                <option>decade</option>
-                <option>century</option>
-                <option>millennium</option>
-                <option>day (sidereal)</option>
-                <option>hour (sidereal)</option>
-                <option>minute (sidereal)</option>
-                <option>second (sidereal)</option>
-                <option>septennial</option>
-                <option>octennial</option>
-                <option>novenial</option>
-                <option>quindecennial</option>
-                <option>quinquennial</option>
-                <option>Planck time</option>
-              </optgroup>
-            </select>
+            <select id="convFrom" class="form-select mb-2" size="8"></select>
+            <input id="convInput" type="number" class="form-control" placeholder="Enter value…">
           </div>
 
-          <!-- TO -->
-          <div class="flex-fill ms-2">
+          <!-- TO side -->
+          <div class="flex-fill ms-3 d-flex flex-column">
             <label for="convTo" class="form-label">To:</label>
-            <select id="convTo" class="form-select" size="12">
-              <!-- repeat the exact same optgroup structure here -->
-              <!-- … same as convFrom … -->
-            </select>
+            <select id="convTo" class="form-select mb-2" size="8"></select>
+            <input id="convResult" type="text" class="form-control" placeholder="Result" readonly>
           </div>
         </div>
 
@@ -316,5 +86,266 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Full Category → units logic -->
+  <script>
+    const units = {
+      Temperature: [
+        'kelvin [K]',
+        'Celsius [°C]',
+        'Fahrenheit [°F]',
+        'Rankine [°R]',
+        'Reaumur [°r]',
+        'Triple point of water'
+      ],
+      Area: [
+        'square meter [m^2]',
+        'square kilometer [km^2]',
+        'square centimeter [cm^2]',
+        'square millimeter [mm^2]',
+        'square micrometer [µm^2]',
+        'hectare [ha]',
+        'acre [a]',
+        'square mile [mi^2]',
+        'square yard [yd^2]',
+        'square foot [ft^2]',
+        'square inch [in^2]',
+        'square hectometer [hm^2]',
+        'square dekameter [dam^2]',
+        'square decimeter [dm^2]',
+        'square nanometer [nm^2]',
+        'are [a]',
+        'barn [b]',
+        'square mile (US survey)',
+        'square foot (US survey)',
+        'circular inch',
+        'township',
+        'section',
+        'acre (US survey) [ac]',
+        'rood',
+        'square chain [ch^2]',
+        'square rod',
+        'square rod (US survey)',
+        'square perch',
+        'square pole',
+        'square mil [mil^2]',
+        'circular mil',
+        'homestead',
+        'sabin',
+        'arpent',
+        'cuerda',
+        'plaza',
+        'varas castellanas cuad',
+        'varas conquuerras cuad',
+        'Electron cross section'
+      ],
+      Volume: [
+        'cubic meter [m³]',
+        'cubic kilometer [km³]',
+        'cubic centimeter [cm³]',
+        'cubic millimeter [mm³]',
+        'liter [L]',
+        'milliliter [mL]',
+        'gallon (US) [gal (US)]',
+        'quart (US) [qt (US)]',
+        'pint (US) [pt (US)]',
+        'cup (US)',
+        'tablespoon (US)',
+        'teaspoon (US)',
+        'cubic mile [mi³]',
+        'cubic yard [yd³]',
+        'cubic foot [ft³]',
+        'minim (UK)',
+        'ton register [ton reg]',
+        'ccf',
+        'hundred-cubic foot',
+        'acre-foot [ac*ft]',
+        'acre-foot (US survey)',
+        'acre-inch [ac*in]',
+        'dekastere',
+        'stere [st]',
+        'decistere',
+        'cord [cd]',
+        'tun',
+        'hogshead',
+        'board foot',
+        'dram [dr]',
+        'cubic inch [in³]',
+        'cubic decimeter [dm³]',
+        'exaliter [EL]',
+        'petaliter [PL]',
+        'teraliter [TL]',
+        'gigaliter [GL]',
+        'megaliter [ML]',
+        'kiloliter [kL]',
+        'hectoliter [hL]',
+        'dekaliter [daL]',
+        'deciliter [dL]',
+        'centiliter [cL]',
+        'cor (Biblical)',
+        'homer (Biblical)',
+        'bath (Biblical)',
+        'hin (Biblical)',
+        'cab (Biblical)',
+        'log (Biblical)',
+        'Taza (Spanish)',
+        'Earth’s volume',
+        'microliter [µL]',
+        'nanoliter [nL]',
+        'picoliter [pL]',
+        'femtoliter [fL]',
+        'attoliter [aL]',
+        'cc [cc, cm³]',
+        'drop',
+        'barrel (oil) [bbl (oil)]',
+        'barrel (US) [bbl (US)]',
+        'barrel (UK) [bbl (UK)]',
+        'gallon (UK) [gal (UK)]',
+        'quart (UK) [qt (UK)]',
+        'pint (UK) [pt (UK)]',
+        'cup (metric)',
+        'cup (UK)',
+        'fluid ounce (US) [fl oz (US)]',
+        'fluid ounce (UK) [fl oz (UK)]',
+        'tablespoon (UK)',
+        'dessertspoon (metric)',
+        'dessertspoon (US)',
+        'dessertspoon (UK)',
+        'teaspoon (UK)',
+        'gill (US) [gi (US)]',
+        'gill (UK) [gi (UK)]',
+        'minim (US)'
+      ],
+      Weight: [
+        'kilogram [kg]',
+        'gram [g]',
+        'milligram [mg]',
+        'ton (metric) [t]',
+        'pound [lb]',
+        'ounce [oz]',
+        'carat [car]',
+        'ton (short) [ton (US)]',
+        'ton (long) [ton (UK)]',
+        'atomic mass unit [u]',
+        'exagram [Eg]',
+        'petagram [Pg]',
+        'teragram [Tg]',
+        'gigagram [Gg]',
+        'megagram [Mg]',
+        'hectogram [hg]',
+        'dekagram [dag]',
+        'decigram [dg]',
+        'centigram [cg]',
+        'microgram [µg]',
+        'nanogram [ng]',
+        'picogram [pg]',
+        'femtogram [fg]',
+        'attogram [ag]',
+        'dalton',
+        'kilogram-force second²/meter',
+        'kilopound [kip]',
+        'slug',
+        'pound-force second²/foot',
+        'pound (troy or apothecary)',
+        'ton (assay) (US) [AT (US)]',
+        'ton (assay) (UK) [AT (UK)]',
+        'kiloton (metric) [kt]',
+        'quintal (metric) [cwt]',
+        'hundredweight (US)',
+        'hundredweight (UK)',
+        'quarter (US) [qr (US)]',
+        'quarter (UK) [qr (UK)]',
+        'stone (US)',
+        'stone (UK)',
+        'tonne [t]',
+        'pennyweight [pwt]',
+        'scruple (apothecary) [s.ap]',
+        'grain [gr]',
+        'gamma',
+        'talent (Biblical Hebrew)',
+        'mina (Biblical Hebrew)',
+        'shekel (Biblical Hebrew)',
+        'bekan (Biblical Hebrew)',
+        'gerah (Biblical Hebrew)',
+        'tetradrachma (Biblical Greek)',
+        'didrachma (Biblical Greek)',
+        'drachma (Biblical Greek)',
+        'denarius (Biblical Roman)',
+        'assarion (Biblical Roman)',
+        'quadrans (Biblical Roman)',
+        'lepton (Biblical Roman)',
+        'Planck mass',
+        'Electron mass (rest)',
+        'Muon mass',
+        'Proton mass',
+        'Neutron mass',
+        'Deuteron mass',
+        'Earth’s mass',
+        'Sun’s mass'
+      ],
+      Time: [
+        'second [s]',
+        'millisecond [ms]',
+        'microsecond [µs]',
+        'nanosecond [ns]',
+        'picosecond [ps]',
+        'femtosecond [fs]',
+        'attosecond [as]',
+        'shake',
+        'minute [min]',
+        'hour [h]',
+        'day [d]',
+        'week',
+        'fortnight',
+        'month',
+        'month (synodic)',
+        'year [y]',
+        'year (Julian)',
+        'year (leap)',
+        'year (tropical)',
+        'year (sidereal)',
+        'decade',
+        'century',
+        'millennium',
+        'day (sidereal)',
+        'hour (sidereal)',
+        'minute (sidereal)',
+        'second (sidereal)',
+        'septennial',
+        'octennial',
+        'novenial',
+        'quindecennial',
+        'quinquennial',
+        'Planck time'
+      ]
+    };
+
+    const catSel    = document.getElementById('convCategory');
+    const fromSel   = document.getElementById('convFrom');
+    const toSel     = document.getElementById('convTo');
+    const inputEl   = document.getElementById('convInput');
+    const resultEl  = document.getElementById('convResult');
+
+    function populateLists() {
+      const list = units[catSel.value];
+      [fromSel, toSel].forEach(sel => {
+        sel.innerHTML = '';
+        list.forEach(u => {
+          const opt = document.createElement('option');
+          opt.textContent = u;
+          sel.appendChild(opt);
+        });
+      });
+      inputEl.value = '';
+      resultEl.value = '';
+    }
+
+    catSel.addEventListener('change', populateLists);
+    populateLists();
+
+    // Placeholder conversion: mirror input
+    inputEl.addEventListener('input', () => {
+      resultEl.value = inputEl.value;
+    });
+  </script>
 </body>
 </html>
