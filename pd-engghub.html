@@ -51,7 +51,7 @@
 
     <!-- UNIT CONVERSION WIDGET -->
     <section id="unit-conversion" class="my-5">
-      <div class="card conversion-card mx-auto shadow-sm">
+      <div class="card conversion-card shadow-sm">
         <div class="card-header">
           <h4 class="mb-0"><i class="bi bi-arrows-expand"></i> Unit Conversion</h4>
         </div>
@@ -138,8 +138,8 @@
       fromSel.innerHTML = '';
       toSel.innerHTML = '';
       names.forEach(u => {
-        fromSel.add(new Option(u, u));
-        toSel.add(new Option(u, u));
+        fromSel.add(new Option(u,u));
+        toSel.add(new Option(u,u));
       });
       updateUnits();
       compute();
@@ -157,31 +157,31 @@
       }
       const cat = catSel.value, f = fromSel.value, t = toSel.value;
       let res;
-      if (cat === 'Temperature') {
+      if (cat==='Temperature') {
         let K;
         switch(f) {
-          case 'kelvin [K]': K = val; break;
-          case 'Celsius [°C]': K = val + 273.15; break;
-          case 'Fahrenheit [°F]': K = (val - 32) * 5/9 + 273.15; break;
-          case 'Rankine [°R]': K = val * 5/9; break;
-          case 'Reaumur [°r]': K = val * 1.25 + 273.15; break;
+          case 'kelvin [K]': K=val; break;
+          case 'Celsius [°C]': K=val+273.15; break;
+          case 'Fahrenheit [°F]': K=(val-32)*5/9+273.15; break;
+          case 'Rankine [°R]': K=val*5/9; break;
+          case 'Reaumur [°r]': K=val*1.25+273.15; break;
         }
         switch(t) {
-          case 'kelvin [K]': res = K; break;
-          case 'Celsius [°C]': res = K - 273.15; break;
-          case 'Fahrenheit [°F]': res = (K - 273.15) * 9/5 + 32; break;
-          case 'Rankine [°R]': res = K * 9/5; break;
-          case 'Reaumur [°r]': res = (K - 273.15) * 0.8; break;
+          case 'kelvin [K]': res=K; break;
+          case 'Celsius [°C]': res=K-273.15; break;
+          case 'Fahrenheit [°F]': res=(K-273.15)*9/5+32; break;
+          case 'Rankine [°R]': res=K*9/5; break;
+          case 'Reaumur [°r]': res=(K-273.15)*0.8; break;
         }
       } else {
-        const map = unitFactors[cat] || {};
-        res = val * (map[f] || 1) / (map[t] || 1);
+        const map = unitFactors[cat]||{};
+        res = val*(map[f]||1)/(map[t]||1);
       }
-      resultEl.value = Number.isFinite(res) ? res.toFixed(4) : '';
+      resultEl.value = Number.isFinite(res)?res.toFixed(4):'';
       updateUnits();
     }
 
-    [inputEl, fromSel, toSel].forEach(el => el.addEventListener('input', compute));
+    [inputEl, fromSel, toSel].forEach(el=>el.addEventListener('input', compute));
     catSel.addEventListener('change', populateLists);
     document.addEventListener('DOMContentLoaded', populateLists);
   </script>
