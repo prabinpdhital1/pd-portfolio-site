@@ -233,60 +233,42 @@ footer {
 
 /* ---------- Unit Conversion Styles ---------- */
 
-/* Unit Conversion Card */
-#unit-conversion .card {
+.conversion-card {
+  max-width: 600px;       /* approx. 5 Bootstrap cols */
+  margin: 0 auto;         /* center on page */
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
-/* Card header */
-#unit-conversion .card-header {
+.conversion-card .card-header {
   background-color: var(--color-secondary);
   color: var(--color-light);
   font-size: 1.25rem;
   letter-spacing: 0.5px;
 }
 
-/* Category headings */
-#unit-conversion h5 {
+#unit-conversion .form-label {
   color: var(--color-primary);
-  margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
-/* Nested lists */
-#unit-conversion ul {
-  padding-left: 1rem;
-  margin-bottom: 1.5rem;
+/* lay out the From/To lists side by side */
+.conversion-box {
+  display: flex;
+  gap: 1rem;
 }
 
-#unit-conversion ul li {
-  line-height: 1.4;
-  margin-bottom: 0.25rem;
-  position: relative;
+/* make each side expand equally */
+.conversion-box .flex-fill {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Add a custom bullet */
-#unit-conversion ul li::before {
-  content: "•";
-  color: var(--color-secondary);
-  position: absolute;
-  left: -1rem;
-  top: 0.3rem;
-  font-size: 0.8rem;
-}
-
-/* Make the lists scrollable if too long */
-#unit-conversion .card-body {
-  max-height: 65vh;
+/* ensure the <select> shows a fixed number of rows and scrolls */
+.conversion-box select {
+  flex: 1 1 auto;
+  min-height: 200px;      /* adjust as desired */
+  height: auto;
   overflow-y: auto;
-  padding-right: 1rem; /* avoid content under scrollbar */
-}
-
-/* Ensure mobile doesn’t get overwhelmed */
-@media (max-width: 767px) {
-  #unit-conversion .card-body {
-    max-height: none;
-    overflow: visible;
-  }
 }
