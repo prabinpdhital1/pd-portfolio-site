@@ -9,8 +9,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Site CSS -->
+  <!-- Site CSS & Inline Styles -->
   <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Caterpillar Yellow Section Header */
+    #unit-conversion .card-header {
+      background-color: #FFD100 !important;
+      border-color: #FFD100 !important;
+      color: #000 !important;
+    }
+    .input-group-text {
+      min-width: 3rem;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#navCollapse" data-bs-offset="100">
 
@@ -35,317 +47,143 @@
   <!-- MAIN CONTENT -->
   <main class="container flex-fill mt-4">
     <h2>Welcome to PD-EnggHub</h2>
-    <p>Explore engineering resources and tools—starting with our comprehensive Unit Conversion widget below.</p>
+    <p>Explore engineering resources and tools—start with our comprehensive Unit Conversion widget below.</p>
+
+    <!-- UNIT CONVERSION WIDGET -->
+    <section id="unit-conversion" class="my-5">
+      <div class="card conversion-card mx-auto shadow-sm">
+        <div class="card-header">
+          <h4 class="mb-0"><i class="bi bi-arrows-expand"></i> Unit Conversion</h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="convCategory" class="form-label">Category</label>
+            <select id="convCategory" class="form-select">
+              <option value="Temperature">Temperature</option>
+              <option value="Area">Area</option>
+              <option value="Volume">Volume</option>
+              <option value="Weight">Weight</option>
+              <option value="Time">Time</option>
+            </select>
+          </div>
+          <div class="row g-3">
+            <div class="col-6">
+              <label for="convFrom" class="form-label">From</label>
+              <select id="convFrom" class="form-select"></select>
+            </div>
+            <div class="col-6">
+              <label for="convTo" class="form-label">To</label>
+              <select id="convTo" class="form-select"></select>
+            </div>
+            <div class="col-6">
+              <label for="convInput" class="form-label">Value</label>
+              <div class="input-group">
+                <input id="convInput" type="number" class="form-control" placeholder="Enter…" />
+                <span class="input-group-text" id="inputUnit"></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="convResult" class="form-label">Result</label>
+              <div class="input-group">
+                <input id="convResult" type="text" class="form-control" readonly />
+                <span class="input-group-text" id="resultUnit"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-
-  <!-- UNIT CONVERSION WIDGET -->
-  <section id="unit-conversion" class="container my-5">
-    <div class="card conversion-card shadow-sm">
-      <div class="card-header bg-secondary text-light">
-        <h4 class="mb-0"><i class="bi bi-arrows-expand"></i> Unit Conversion</h4>
-      </div>
-      <div class="card-body">
-
-        <!-- Category selector -->
-        <div class="mb-4">
-          <label for="convCategory" class="form-label">Category</label>
-          <select id="convCategory" class="form-select">
-            <option value="Temperature">Temperature</option>
-            <option value="Area">Area</option>
-            <option value="Volume">Volume</option>
-            <option value="Weight">Weight</option>
-            <option value="Time">Time</option>
-          </select>
-        </div>
-
-        <!-- From / To lists + input/result -->
-        <div class="conversion-box mb-3">
-          <!-- FROM side -->
-          <div class="flex-fill me-3 d-flex flex-column">
-            <label for="convFrom" class="form-label">From:</label>
-            <select id="convFrom" class="form-select mb-2" size="8"></select>
-            <input id="convInput" type="number" class="form-control" placeholder="Enter value…">
-          </div>
-
-          <!-- TO side -->
-          <div class="flex-fill ms-3 d-flex flex-column">
-            <label for="convTo" class="form-label">To:</label>
-            <select id="convTo" class="form-select mb-2" size="8"></select>
-            <input id="convResult" type="text" class="form-control" placeholder="Result" readonly>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer class="text-center py-4 mt-auto">
     <small>&copy; 2025 Prabin Dhital</small>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Bootstrap JS & Conversion Logic -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Full Category → units logic -->
   <script>
-    const units = {
-      Temperature: [
-        'kelvin [K]',
-        'Celsius [°C]',
-        'Fahrenheit [°F]',
-        'Rankine [°R]',
-        'Reaumur [°r]',
-        'Triple point of water'
-      ],
-      Area: [
-        'square meter [m^2]',
-        'square kilometer [km^2]',
-        'square centimeter [cm^2]',
-        'square millimeter [mm^2]',
-        'square micrometer [µm^2]',
-        'hectare [ha]',
-        'acre [a]',
-        'square mile [mi^2]',
-        'square yard [yd^2]',
-        'square foot [ft^2]',
-        'square inch [in^2]',
-        'square hectometer [hm^2]',
-        'square dekameter [dam^2]',
-        'square decimeter [dm^2]',
-        'square nanometer [nm^2]',
-        'are [a]',
-        'barn [b]',
-        'square mile (US survey)',
-        'square foot (US survey)',
-        'circular inch',
-        'township',
-        'section',
-        'acre (US survey) [ac]',
-        'rood',
-        'square chain [ch^2]',
-        'square rod',
-        'square rod (US survey)',
-        'square perch',
-        'square pole',
-        'square mil [mil^2]',
-        'circular mil',
-        'homestead',
-        'sabin',
-        'arpent',
-        'cuerda',
-        'plaza',
-        'varas castellanas cuad',
-        'varas conquuerras cuad',
-        'Electron cross section'
-      ],
-      Volume: [
-        'cubic meter [m³]',
-        'cubic kilometer [km³]',
-        'cubic centimeter [cm³]',
-        'cubic millimeter [mm³]',
-        'liter [L]',
-        'milliliter [mL]',
-        'gallon (US) [gal (US)]',
-        'quart (US) [qt (US)]',
-        'pint (US) [pt (US)]',
-        'cup (US)',
-        'tablespoon (US)',
-        'teaspoon (US)',
-        'cubic mile [mi³]',
-        'cubic yard [yd³]',
-        'cubic foot [ft³]',
-        'minim (UK)',
-        'ton register [ton reg]',
-        'ccf',
-        'hundred-cubic foot',
-        'acre-foot [ac*ft]',
-        'acre-foot (US survey)',
-        'acre-inch [ac*in]',
-        'dekastere',
-        'stere [st]',
-        'decistere',
-        'cord [cd]',
-        'tun',
-        'hogshead',
-        'board foot',
-        'dram [dr]',
-        'cubic inch [in³]',
-        'cubic decimeter [dm³]',
-        'exaliter [EL]',
-        'petaliter [PL]',
-        'teraliter [TL]',
-        'gigaliter [GL]',
-        'megaliter [ML]',
-        'kiloliter [kL]',
-        'hectoliter [hL]',
-        'dekaliter [daL]',
-        'deciliter [dL]',
-        'centiliter [cL]',
-        'cor (Biblical)',
-        'homer (Biblical)',
-        'bath (Biblical)',
-        'hin (Biblical)',
-        'cab (Biblical)',
-        'log (Biblical)',
-        'Taza (Spanish)',
-        'Earth’s volume',
-        'microliter [µL]',
-        'nanoliter [nL]',
-        'picoliter [pL]',
-        'femtoliter [fL]',
-        'attoliter [aL]',
-        'cc [cc, cm³]',
-        'drop',
-        'barrel (oil) [bbl (oil)]',
-        'barrel (US) [bbl (US)]',
-        'barrel (UK) [bbl (UK)]',
-        'gallon (UK) [gal (UK)]',
-        'quart (UK) [qt (UK)]',
-        'pint (UK) [pt (UK)]',
-        'cup (metric)',
-        'cup (UK)',
-        'fluid ounce (US) [fl oz (US)]',
-        'fluid ounce (UK) [fl oz (UK)]',
-        'tablespoon (UK)',
-        'dessertspoon (metric)',
-        'dessertspoon (US)',
-        'dessertspoon (UK)',
-        'teaspoon (UK)',
-        'gill (US) [gi (US)]',
-        'gill (UK) [gi (UK)]',
-        'minim (US)'
-      ],
-      Weight: [
-        'kilogram [kg]',
-        'gram [g]',
-        'milligram [mg]',
-        'ton (metric) [t]',
-        'pound [lb]',
-        'ounce [oz]',
-        'carat [car]',
-        'ton (short) [ton (US)]',
-        'ton (long) [ton (UK)]',
-        'atomic mass unit [u]',
-        'exagram [Eg]',
-        'petagram [Pg]',
-        'teragram [Tg]',
-        'gigagram [Gg]',
-        'megagram [Mg]',
-        'hectogram [hg]',
-        'dekagram [dag]',
-        'decigram [dg]',
-        'centigram [cg]',
-        'microgram [µg]',
-        'nanogram [ng]',
-        'picogram [pg]',
-        'femtogram [fg]',
-        'attogram [ag]',
-        'dalton',
-        'kilogram-force second²/meter',
-        'kilopound [kip]',
-        'slug',
-        'pound-force second²/foot',
-        'pound (troy or apothecary)',
-        'ton (assay) (US) [AT (US)]',
-        'ton (assay) (UK) [AT (UK)]',
-        'kiloton (metric) [kt]',
-        'quintal (metric) [cwt]',
-        'hundredweight (US)',
-        'hundredweight (UK)',
-        'quarter (US) [qr (US)]',
-        'quarter (UK) [qr (UK)]',
-        'stone (US)',
-        'stone (UK)',
-        'tonne [t]',
-        'pennyweight [pwt]',
-        'scruple (apothecary) [s.ap]',
-        'grain [gr]',
-        'gamma',
-        'talent (Biblical Hebrew)',
-        'mina (Biblical Hebrew)',
-        'shekel (Biblical Hebrew)',
-        'bekan (Biblical Hebrew)',
-        'gerah (Biblical Hebrew)',
-        'tetradrachma (Biblical Greek)',
-        'didrachma (Biblical Greek)',
-        'drachma (Biblical Greek)',
-        'denarius (Biblical Roman)',
-        'assarion (Biblical Roman)',
-        'quadrans (Biblical Roman)',
-        'lepton (Biblical Roman)',
-        'Planck mass',
-        'Electron mass (rest)',
-        'Muon mass',
-        'Proton mass',
-        'Neutron mass',
-        'Deuteron mass',
-        'Earth’s mass',
-        'Sun’s mass'
-      ],
-      Time: [
-        'second [s]',
-        'millisecond [ms]',
-        'microsecond [µs]',
-        'nanosecond [ns]',
-        'picosecond [ps]',
-        'femtosecond [fs]',
-        'attosecond [as]',
-        'shake',
-        'minute [min]',
-        'hour [h]',
-        'day [d]',
-        'week',
-        'fortnight',
-        'month',
-        'month (synodic)',
-        'year [y]',
-        'year (Julian)',
-        'year (leap)',
-        'year (tropical)',
-        'year (sidereal)',
-        'decade',
-        'century',
-        'millennium',
-        'day (sidereal)',
-        'hour (sidereal)',
-        'minute (sidereal)',
-        'second (sidereal)',
-        'septennial',
-        'octennial',
-        'novenial',
-        'quindecennial',
-        'quinquennial',
-        'Planck time'
-      ]
+    // Subcategory names
+    const unitNames = {
+      Temperature: ['kelvin [K]','Celsius [°C]','Fahrenheit [°F]','Rankine [°R]','Reaumur [°r]','Triple point of water'],
+      Area: ['square meter [m^2]','square kilometer [km^2]','square centimeter [cm^2]','square millimeter [mm^2]','square micrometer [µm^2]','hectare [ha]','acre [a]','square mile [mi^2]','square yard [yd^2]','square foot [ft^2]','square inch [in^2]','square hectometer [hm^2]','square dekameter [dam^2]','square decimeter [dm^2]','square nanometer [nm^2]','are [a]','barn [b]','square mile (US survey)','square foot (US survey)','circular inch','township','section','acre (US survey) [ac]','rood','square chain [ch^2]','square rod','square rod (US survey)','square perch','square pole','square mil [mil^2]','circular mil','homestead','sabin','arpent','cuerda','plaza','varas castellanas cuad','varas conquistad cuad','Electron cross section'],
+      Volume: ['cubic meter [m³]','cubic kilometer [km³]','cubic centimeter [cm³]','cubic millimeter [mm³]','liter [L]','milliliter [mL]','gallon (US) [gal]','quart (US) [qt]','pint (US) [pt]','cup (US)','tablespoon (US)','teaspoon (US)','cubic mile [mi³]','cubic yard [yd³]','cubic foot [ft³]','minim (UK)','ton register [ton reg]','ccf','hundred-cubic foot','acre-foot [ac·ft]','acre-inch [ac·in]','dekastere','stere','cord','tun','hogshead','board foot','dram','cubic inch','exaliter','petaliter','teraliter','gigaliter','megaliter','kiloliter','hectoliter','dekaliter','deciliter','centiliter','microliter','nanoliter','picoliter','femtoliter','attoliter','drop','barrel','fluid ounce','gill'],
+      Weight: ['kilogram [kg]','gram [g]','milligram [mg]','ton (metric) [t]','pound [lb]','ounce [oz]','carat [ct]','slug','atomic mass unit','Planck mass','Earth’s mass','Sun’s mass'],
+      Time: ['year [y]','day [d]','hour [h]','minute [min]','second [s]','millisecond [ms]','microsecond [µs]','nanosecond [ns]','picosecond [ps]','femtosecond [fs]','shake','fortnight','week','month','Planck time']
     };
 
-    const catSel    = document.getElementById('convCategory');
-    const fromSel   = document.getElementById('convFrom');
-    const toSel     = document.getElementById('convTo');
-    const inputEl   = document.getElementById('convInput');
-    const resultEl  = document.getElementById('convResult');
+    // Conversion factors
+    const unitFactors = {
+      Temperature: null,
+      Area: { 'square meter [m^2]':1, 'square kilometer [km^2]':1e6, 'square centimeter [cm^2]':1e-4, 'square millimeter [mm^2]':1e-6, 'hectare [ha]':1e4, 'acre [a]':4046.8564, 'square mile [mi^2]':2.59e6, 'square foot [ft^2]':0.092903, 'square inch [in^2]':0.00064516 },
+      Volume: { 'cubic meter [m³]':1, 'liter [L]':0.001, 'milliliter [mL]':1e-6, 'cubic inch':1.6387e-5, 'cubic foot [ft³]':0.0283168, 'cubic yard [yd³]':0.764555, 'gallon [gal]':0.00378541, 'pint [pt]':0.000473176, 'quart [qt]':0.000946353 },
+      Weight: { 'kilogram [kg]':1, 'gram [g]':0.001, 'milligram [mg]':1e-6, 'pound [lb]':0.453592, 'ounce [oz]':0.0283495, 'ton (metric) [t]':1000 },
+      Time: { 'second [s]':1, 'minute [min]':60, 'hour [h]':3600, 'day [d]':86400, 'week':604800, 'year [y]':31557600 }
+    };
 
+    const catSel = document.getElementById('convCategory');
+    const fromSel = document.getElementById('convFrom');
+    const toSel = document.getElementById('convTo');
+    const inputEl = document.getElementById('convInput');
+    const resultEl = document.getElementById('convResult');
+    const inputUnit = document.getElementById('inputUnit');
+    const resultUnit = document.getElementById('resultUnit');
+
+    function extractSymbol(unit) {
+      const m = unit.match(/\[([^\]]+)\]/);
+      return m ? m[1] : '';
+    }
     function populateLists() {
-      const list = units[catSel.value];
-      [fromSel, toSel].forEach(sel => {
-        sel.innerHTML = '';
-        list.forEach(u => {
-          const opt = document.createElement('option');
-          opt.textContent = u;
-          sel.appendChild(opt);
-        });
+      const names = unitNames[catSel.value] || [];
+      fromSel.innerHTML = '';
+      toSel.innerHTML = '';
+      names.forEach(u => {
+        fromSel.add(new Option(u, u));
+        toSel.add(new Option(u, u));
       });
-      inputEl.value = '';
-      resultEl.value = '';
+      updateUnits();
+      compute();
+    }
+    function updateUnits() {
+      inputUnit.textContent = extractSymbol(fromSel.value);
+      resultUnit.textContent = extractSymbol(toSel.value);
+    }
+    function compute() {
+      const val = parseFloat(inputEl.value);
+      if (isNaN(val)) {
+        resultEl.value = '';
+        updateUnits();
+        return;
+      }
+      const cat = catSel.value, f = fromSel.value, t = toSel.value;
+      let res;
+      if (cat === 'Temperature') {
+        let K;
+        switch(f) {
+          case 'kelvin [K]': K = val; break;
+          case 'Celsius [°C]': K = val + 273.15; break;
+          case 'Fahrenheit [°F]': K = (val - 32) * 5/9 + 273.15; break;
+          case 'Rankine [°R]': K = val * 5/9; break;
+          case 'Reaumur [°r]': K = val * 1.25 + 273.15; break;
+        }
+        switch(t) {
+          case 'kelvin [K]': res = K; break;
+          case 'Celsius [°C]': res = K - 273.15; break;
+          case 'Fahrenheit [°F]': res = (K - 273.15) * 9/5 + 32; break;
+          case 'Rankine [°R]': res = K * 9/5; break;
+          case 'Reaumur [°r]': res = (K - 273.15) * 0.8; break;
+        }
+      } else {
+        const map = unitFactors[cat] || {};
+        res = val * (map[f] || 1) / (map[t] || 1);
+      }
+      resultEl.value = Number.isFinite(res) ? res.toFixed(4) : '';
+      updateUnits();
     }
 
+    [inputEl, fromSel, toSel].forEach(el => el.addEventListener('input', compute));
     catSel.addEventListener('change', populateLists);
-    populateLists();
-
-    // Placeholder conversion: mirror input
-    inputEl.addEventListener('input', () => {
-      resultEl.value = inputEl.value;
-    });
+    document.addEventListener('DOMContentLoaded', populateLists);
   </script>
 </body>
 </html>
