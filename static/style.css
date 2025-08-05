@@ -236,7 +236,9 @@ footer {
 /* Unit Conversion Widget Styles */
 .conversion-card {
   max-width: 600px;
-  margin: 0 auto;
+  /* remove auto-centering */
+  margin-left: 0;
+  margin-right: auto;
   border: none;
   border-radius: .5rem;
 }
@@ -253,3 +255,4 @@ footer {
 }
 
 /* END Unit Conversion Styles */
+
