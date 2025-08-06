@@ -9,8 +9,22 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+  <!-- Model Viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <!-- Site CSS -->
   <link rel="stylesheet" href="static/style.css">
+  <style>
+    .model-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+      background: #f8f9fa;
+      color: #6c757d;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#navCollapse" data-bs-offset="100">
 
@@ -36,81 +50,10 @@
   <!-- MAIN CONTENT -->
   <main id="pd-cad-portfolio" class="container flex-fill mt-4">
     <h2>PD CAD’s Portfolio</h2>
-    <p>Welcome to my CAD portfolio! Below you’ll find samples of my work in 2D and 3D CAD, including part assemblies, detailed drawings, and design studies.</p>
+    <p>Welcome PD’s CAD Portfolio</p>
 
-    <!-- Example CAD Showcase -->
-    <div class="row g-4">
-      <!-- Card 1 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <img src="static/cad-example1.png" class="card-img-top" alt="CAD Model 1">
-          <div class="card-body">
-            <h5 class="card-title">Axial Load Bracket</h5>
-            <p class="card-text">3D assembly showing bracket under axial load, with exploded view.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <img src="static/cad-example2.png" class="card-img-top" alt="CAD Model 2">
-          <div class="card-body">
-            <h5 class="card-title">Fatigue Test Fixture</h5>
-            <p class="card-text">Detailed drawing of fatigue test fixture used in MTS machine.</p>
-          </div>
-        </div>
-      </div>
-       <!-- Card 3 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <img src="static/cad-example2.png" class="card-img-top" alt="CAD Model 2">
-          <div class="card-body">
-            <h5 class="card-title">Fatigue Test Fixture</h5>
-            <p class="card-text">Detailed drawing of fatigue test fixture used in MTS machine.</p>
-          </div>
-        </div>
-      </div>
-       <!-- Card 2 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <img src="static/cad-example2.png" class="card-img-top" alt="CAD Model 2">
-          <div class="card-body">
-            <h5 class="card-title">Fatigue Test Fixture</h5>
-            <p class="card-text">Detailed drawing of fatigue test fixture used in MTS machine.</p>
-          </div>
-        </div>
-      </div>
-       <!-- Card 4 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <img src="static/cad-example2.png" class="card-img-top" alt="CAD Model 2">
-          <div class="card-body">
-            <h5 class="card-title">Fatigue Test Fixture</h5>
-            <p class="card-text">Detailed drawing of fatigue test fixture used in MTS machine.</p>
-          </div>
-        </div>
-      </div>
-       <!-- Card 5 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <img src="static/cad-example2.png" class="card-img-top" alt="CAD Model 2">
-          <div class="card-body">
-            <h5 class="card-title">Fatigue Test Fixture</h5>
-            <p class="card-text">Detailed drawing of fatigue test fixture used in MTS machine.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 6 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <img src="static/cad-example3.png" class="card-img-top" alt="CAD Model 3">
-          <div class="card-body">
-            <h5 class="card-title">Suspension Bushing</h5>
-            <p class="card-text">Parametric model of suspension bushing with section views.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Dynamic CAD Showcase Grid -->
+    <div id="cad-grid" class="row g-4"></div>
   </main>
 
   <!-- FOOTER -->
@@ -118,7 +61,82 @@
     <small>&copy; 2025 Prabin Dhital</small>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const samples = [
+        { title: 'Axial Load Bracket',   desc: '3D assembly showing bracket under axial load, with exploded view.' },
+        { title: 'Fatigue Test Fixture', desc: 'Detailed drawing of fatigue test fixture used in MTS machine.' },
+        { title: 'Suspension Bushing',   desc: 'Parametric model of suspension bushing with section views.' }
+      ];
+      const grid = document.getElementById('cad-grid');
+
+      for (let i = 1; i <= 100; i++) {
+        const sample = samples[(i - 1) % samples.length];
+        const filePath = `static/cad-example${i}.stp`;
+
+        const col = document.createElement('div');
+        col.className = 'col-md-4';
+
+        const card = document.createElement('div');
+        card.className = 'card shadow-sm h-100';
+
+        // Check file availability before loading
+        fetch(filePath, { method: 'HEAD' })
+          .then(response => {
+            if (response.ok) {
+              const modelViewer = document.createElement('model-viewer');
+              modelViewer.setAttribute('src', filePath);
+              modelViewer.setAttribute('camera-controls', '');
+              modelViewer.setAttribute('auto-rotate', '');
+              modelViewer.setAttribute('interaction-prompt', 'hover');
+              modelViewer.setAttribute('style', 'width:100%; height:180px; background:#eee;');
+              card.appendChild(modelViewer);
+            } else {
+              const placeholder = document.createElement('div');
+              placeholder.className = 'model-placeholder';
+              placeholder.textContent = `Model file not found: cad-example${i}.stp`;
+              card.appendChild(placeholder);
+            }
+
+            const body = document.createElement('div');
+            body.className = 'card-body';
+
+            const title = document.createElement('h5');
+            title.className = 'card-title';
+            title.textContent = sample.title;
+
+            const text = document.createElement('p');
+            text.className = 'card-text';
+            text.textContent = sample.desc;
+
+            body.append(title, text);
+            card.append(body);
+            col.append(card);
+            grid.append(col);
+          })
+          .catch(() => {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'model-placeholder';
+            placeholder.textContent = `Error loading: cad-example${i}.stp`;
+            card.appendChild(placeholder);
+
+            const body = document.createElement('div');
+            body.className = 'card-body';
+            const title = document.createElement('h5');
+            title.className = 'card-title';
+            title.textContent = sample.title;
+            const text = document.createElement('p');
+            text.className = 'card-text';
+            text.textContent = sample.desc;
+            body.append(title, text);
+            card.append(body);
+            col.append(card);
+            grid.append(col);
+          });
+      }
+    });
+  </script>
 </body>
 </html>
