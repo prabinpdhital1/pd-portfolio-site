@@ -22,9 +22,19 @@
       min-width: 3rem;
       justify-content: center;
     }
+    /* Clickable “PD CAD’s Portfolio” card */
+    .action-card {
+      cursor: pointer;
+      transition: transform .1s ease-in-out, box-shadow .1s;
+    }
+    .action-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    }
   </style>
 </head>
-<body class="d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target="#navCollapse" data-bs-offset="100">
+<body class="d-flex flex-column min-vh-100"
+      data-bs-spy="scroll" data-bs-target="#navCollapse" data-bs-offset="100">
 
   <!-- NAVBAR -->
   <header>
@@ -93,6 +103,15 @@
         </div>
       </div>
     </section>
+
+    <!-- PD CAD’s Portfolio CTA -->
+    <section id="pd-cad-cta" class="my-5 text-center">
+      <a href="pd-cad-portfolio.html" target="_blank" class="text-decoration-none">
+        <div class="card shadow-sm rounded-3 py-4 px-2 action-card">
+          <h4 class="mb-0">PD CAD’s Portfolio</h4>
+        </div>
+      </a>
+    </section>
   </main>
 
   <!-- FOOTER -->
@@ -106,7 +125,7 @@
     // Subcategory names
     const unitNames = {
       Temperature: ['kelvin [K]','Celsius [°C]','Fahrenheit [°F]','Rankine [°R]','Reaumur [°r]','Triple point of water'],
-      Area: ['square meter [m^2]','square kilometer [km^2]','square centimeter [cm^2]','square millimeter [mm^2]','square micrometer [µm^2]','hectare [ha]','acre [a]','square mile [mi^2]','square yard [yd^2]','square foot [ft^2]','square inch [in^2]','square hectometer [hm^2]','square dekameter [dam^2]','square decimeter [dm^2]','square nanometer [nm^2]','are [a]','barn [b]','square mile (US survey)','square foot (US survey)','circular inch','township','section','acre (US survey) [ac]','rood','square chain [ch^2]','square rod','square rod (US survey)','square perch','square pole','square mil [mil^2]','circular mil','homestead','sabin','arpent','cuerda','plaza','varas castellanas cuad','varas conquistad cuad','Electron cross section'],
+      Area: ['square meter [m^2]','square kilometer [km^2]','square centimeter [cm^2]','square millimeter [mm^2]','square micrometer [µm^2]','hectare [ha]','acre [a]','square mile [mi^2]','square yard [yd^2]','square foot [ft^2]','square inch [in^2]','square hectometer [hm^2]','square decameter [dam^2]','square decimeter [dm^2]','square nanometer [nm^2]','are [a]','barn [b]','square mile (US survey)','square foot (US survey)','circular inch','township','section','acre (US survey) [ac]','rood','square chain [ch^2]','square rod','square rod (US survey)','square perch','square pole','square mil [mil^2]','circular mil','homestead','sabin','arpent','cuerda','plaza','varas castellanas cuad','varas conquistad cuad','Electron cross section'],
       Volume: ['cubic meter [m³]','cubic kilometer [km³]','cubic centimeter [cm³]','cubic millimeter [mm³]','liter [L]','milliliter [mL]','gallon (US) [gal]','quart (US) [qt]','pint (US) [pt]','cup (US)','tablespoon (US)','teaspoon (US)','cubic mile [mi³]','cubic yard [yd³]','cubic foot [ft³]','minim (UK)','ton register [ton reg]','ccf','hundred-cubic foot','acre-foot [ac·ft]','acre-inch [ac·in]','dekastere','stere','cord','tun','hogshead','board foot','dram','cubic inch','exaliter','petaliter','teraliter','gigaliter','megaliter','kiloliter','hectoliter','dekaliter','deciliter','centiliter','microliter','nanoliter','picoliter','femtoliter','attoliter','drop','barrel','fluid ounce','gill'],
       Weight: ['kilogram [kg]','gram [g]','milligram [mg]','ton (metric) [t]','pound [lb]','ounce [oz]','carat [ct]','slug','atomic mass unit','Planck mass','Earth’s mass','Sun’s mass'],
       Time: ['year [y]','day [d]','hour [h]','minute [min]','second [s]','millisecond [ms]','microsecond [µs]','nanosecond [ns]','picosecond [ps]','femtosecond [fs]','shake','fortnight','week','month','Planck time']
