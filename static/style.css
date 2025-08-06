@@ -255,5 +255,48 @@ footer {
 
 /* END Unit Conversion Styles */
 
+/* ————————————————————————————
+   PD CAD’s Portfolio page overrides
+   ———————————————————————————— */
+#pd-cad-portfolio {
+  /* add a little breathing room */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#pd-cad-portfolio h2 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+/* Ensure all CAD cards are equal height + hover lift */
+#pd-cad-portfolio .card {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#pd-cad-portfolio .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .15);
+}
+
+/* Make images cover their card headers uniformly */
+#pd-cad-portfolio .card-img-top {
+  object-fit: cover;
+  width: 100%;
+  height: 180px;
+}
+
+/* Tighter text spacing inside the cards */
+#pd-cad-portfolio .card-body {
+  padding: 1rem;
+}
+#pd-cad-portfolio .card-title {
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+}
+#pd-cad-portfolio .card-text {
+  font-size: .9rem;
+  color: var(--color-muted);
+}
+
 
 
